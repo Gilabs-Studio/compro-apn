@@ -1,0 +1,11 @@
+{
+  "common": {
+    "hello": "Hello"
+  },
+  "notFound": {
+    "label": "Page not found",
+    "title": "We couldn\"t find that page",
+    "description": "The page may have been moved, deleted, or the link may be incorrect.",
+    "backHome": "Go back home"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "common": {
+    "hello": "Halo"
+  },
+  "notFound": {
+    "label": "Halaman tidak ditemukan",
+    "title": "Kami tidak menemukan halaman itu",
+    "description": "Halaman mungkin sudah dipindahkan, dihapus, atau tautannya salah.",
+    "backHome": "Kembali ke beranda"
+  }
+}
