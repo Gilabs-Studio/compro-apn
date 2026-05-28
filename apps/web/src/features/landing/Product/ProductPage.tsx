@@ -3,6 +3,7 @@ import { Link } from "@/i18n/routing";
 import { PageTransition } from "../PageTransition";
 import { ParallaxImage } from "../ParallaxImage";
 import { Reveal } from "../Reveal";
+import { LandingEyebrow } from "../LandingEyebrow";
 import { getLandingCopy, getLandingImage } from "../content";
 import { ProductCard } from "./ProductCard";
 
@@ -18,9 +19,9 @@ export function ProductPage({ locale }: ProductPageProps) {
       <section className="grid min-h-[92svh] bg-neutral-950 text-white lg:grid-cols-[0.85fr_1.15fr]">
         <div className="flex items-end px-6 pb-16 pt-36 sm:px-8 lg:px-12">
           <div className="max-w-xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
+            <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Produk" : "Product"}
-            </p>
+            </LandingEyebrow>
             <h1 className="mt-6 text-5xl font-semibold leading-none tracking-tight sm:text-7xl">
               {locale === "id"
                 ? "Mesin untuk workshop yang bekerja presisi."
@@ -47,9 +48,9 @@ export function ProductPage({ locale }: ProductPageProps) {
         <div className="mx-auto max-w-7xl">
           <Reveal className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
+              <LandingEyebrow className="text-neutral-500">
                 {locale === "id" ? "Katalog mesin" : "Machine catalog"}
-              </p>
+              </LandingEyebrow>
               <h2 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
                 {locale === "id"
                   ? "Foto produk dibuat besar, bersih, dan fokus ke satu objek."
@@ -76,9 +77,9 @@ export function ProductPage({ locale }: ProductPageProps) {
       <section className="bg-white px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.7fr_1.3fr]">
           <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
+            <LandingEyebrow className="text-neutral-500">
               {locale === "id" ? "Keunggulan" : "Advantages"}
-            </p>
+            </LandingEyebrow>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
               {locale === "id"
                 ? "Solusi lengkap, bukan pilihan acak."

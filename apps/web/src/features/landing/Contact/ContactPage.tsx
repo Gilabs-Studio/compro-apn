@@ -1,6 +1,7 @@
 import { ArrowRight, MapPin } from "lucide-react";
 import { PageTransition } from "../PageTransition";
 import { Reveal } from "../Reveal";
+import { LandingEyebrow } from "../LandingEyebrow";
 import { getLandingCopy } from "../content";
 
 type ContactPageProps = {
@@ -15,9 +16,9 @@ export function ContactPage({ locale }: ContactPageProps) {
       <section className="bg-neutral-950 px-6 pb-20 pt-36 text-white sm:px-8 lg:px-12 lg:pb-28 lg:pt-44">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
+            <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Kontak" : "Contact"}
-            </p>
+            </LandingEyebrow>
             <h1 className="mt-6 text-5xl font-semibold leading-none tracking-tight sm:text-7xl">
               {locale === "id"
                 ? "Diskusikan kebutuhan mesin Anda."

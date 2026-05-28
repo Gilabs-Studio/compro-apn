@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Sora, Newsreader } from "next/font/google";
+import { Damion, Geist, Geist_Mono, Sora, Newsreader } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { getLanguageAlternates } from "@/lib/seo";
@@ -27,6 +27,13 @@ const accentFont = Newsreader({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   style: ["italic", "normal"],
+  display: "swap",
+});
+
+const damionFont = Damion({
+  variable: "--font-damion",
+  subsets: ["latin"],
+  weight: "400",
   display: "swap",
 });
 
@@ -137,7 +144,7 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${headingFont.variable} ${accentFont.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${headingFont.variable} ${accentFont.variable} ${damionFont.variable} antialiased`}
       >
         {children}
       </body>

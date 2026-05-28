@@ -3,6 +3,7 @@ import { Link } from "@/i18n/routing";
 import { PageTransition } from "../PageTransition";
 import { ParallaxImage } from "../ParallaxImage";
 import { Reveal } from "../Reveal";
+import { LandingEyebrow } from "../LandingEyebrow";
 import { getLandingCopy, getLandingImage } from "../content";
 import { ProductCard } from "../Product/ProductCard";
 
@@ -25,17 +26,17 @@ export function HomePage({ locale }: HomePageProps) {
           className="absolute inset-0 h-full"
           imageClassName="opacity-72"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-black/20" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-neutral-950 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/85 via-black/45 to-black/20" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-neutral-950 to-transparent" />
         <div className="relative z-10 mx-auto flex min-h-[92svh] max-w-7xl items-end px-6 pb-20 pt-36 sm:px-8 lg:px-12">
           <div className="max-w-4xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-amber-300">
-              {copy.hero.eyebrow}
-            </p>
             <h1 className="mt-6 text-5xl font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
               {copy.company}
             </h1>
-            <p className="mt-7 max-w-2xl text-xl leading-8 text-white/78 sm:text-2xl">
+            <p
+              className="mt-7 max-w-2xl text-2xl text-amber-300 sm:text-3xl lg:text-4xl"
+              style={{ fontFamily: "var(--font-damion)" }}
+            >
               {copy.hero.title}
             </p>
             <p className="mt-5 max-w-2xl text-base leading-7 text-white/62">
@@ -63,9 +64,9 @@ export function HomePage({ locale }: HomePageProps) {
       <section className="bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-28">
         <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
+            <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Adiguna dalam angka" : "Adiguna in numbers"}
-            </p>
+            </LandingEyebrow>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
               {locale === "id"
                 ? "Teknologi manufaktur untuk pekerjaan presisi."
@@ -93,9 +94,9 @@ export function HomePage({ locale }: HomePageProps) {
         <div className="mx-auto max-w-7xl">
           <Reveal className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
+              <LandingEyebrow className="text-neutral-500">
                 {locale === "id" ? "Produk unggulan" : "Featured products"}
-              </p>
+              </LandingEyebrow>
               <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
                 {locale === "id"
                   ? "Mesin industri dengan karakter visual yang kuat."
@@ -126,9 +127,9 @@ export function HomePage({ locale }: HomePageProps) {
           />
           <div className="flex flex-col justify-center bg-white p-8 sm:p-12 lg:p-16">
             <Reveal>
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
+              <LandingEyebrow className="text-neutral-500">
                 {locale === "id" ? "Layanan" : "Services"}
-              </p>
+              </LandingEyebrow>
               <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
                 {locale === "id"
                   ? "Bukan hanya menjual mesin, kami membantu memilih solusi."

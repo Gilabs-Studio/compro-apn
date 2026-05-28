@@ -1,6 +1,7 @@
 import { PageTransition } from "../PageTransition";
 import { ParallaxImage } from "../ParallaxImage";
 import { Reveal } from "../Reveal";
+import { LandingEyebrow } from "../LandingEyebrow";
 import { getLandingCopy, getLandingImage } from "../content";
 
 type AboutPageProps = {
@@ -25,9 +26,9 @@ export function AboutPage({ locale }: AboutPageProps) {
         <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/52 to-black/20" />
         <div className="relative z-10 mx-auto flex min-h-[88svh] max-w-7xl items-end px-6 pb-16 pt-36 sm:px-8 lg:px-12">
           <div className="max-w-4xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
+            <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Tentang Kami" : "About Us"}
-            </p>
+            </LandingEyebrow>
             <h1 className="mt-6 text-5xl font-semibold leading-none tracking-tight sm:text-7xl">
               {locale === "id"
                 ? "Perusahaan mesin industri dengan orientasi presisi."
@@ -45,17 +46,17 @@ export function AboutPage({ locale }: AboutPageProps) {
       <section className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
+            <LandingEyebrow className="text-neutral-500">
               {locale === "id" ? "Visi" : "Vision"}
-            </p>
+            </LandingEyebrow>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
               {copy.vision}
             </h2>
           </Reveal>
           <Reveal className="bg-white p-8 sm:p-10 lg:p-12">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
+            <LandingEyebrow className="text-neutral-500">
               {locale === "id" ? "Misi" : "Mission"}
-            </p>
+            </LandingEyebrow>
             <div className="mt-8 grid gap-5">
               {copy.mission.map((mission, index) => (
                 <div
@@ -76,9 +77,9 @@ export function AboutPage({ locale }: AboutPageProps) {
       <section className="bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-32">
         <div className="mx-auto max-w-7xl">
           <Reveal className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
+            <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Nilai perusahaan" : "Company values"}
-            </p>
+            </LandingEyebrow>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
               ADIGUNA
             </h2>
@@ -101,9 +102,9 @@ export function AboutPage({ locale }: AboutPageProps) {
       <section className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
+            <LandingEyebrow className="text-neutral-500">
               {locale === "id" ? "Target industri" : "Target industries"}
-            </p>
+            </LandingEyebrow>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
               {locale === "id"
                 ? "Dibangun untuk banyak kebutuhan produksi."

@@ -72,10 +72,7 @@ export function getLandingCopy(locale: string) {
       { label: isId ? "Kontak" : "Contact", href: "/contact" },
     ],
     hero: {
-      eyebrow: isId ? "Precision Machinery" : "Precision Machinery",
-      title: isId
-        ? "Solusi mesin industri untuk produksi yang presisi."
-        : "Industrial machinery solutions for precise production.",
+      title: "Precision Machinery & Manufacturing Solutions",
       description: isId
         ? "Penyedia mesin CNC, mesin perkakas workshop, tooling machining, instalasi, konsultasi, dan engineering support untuk kebutuhan manufaktur Indonesia."
         : "Provider of CNC machines, workshop machine tools, machining tooling, installation, consultation, and engineering support for Indonesian manufacturing.",

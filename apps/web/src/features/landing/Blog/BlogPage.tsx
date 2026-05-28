@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { PageTransition } from "../PageTransition";
 import { Reveal } from "../Reveal";
+import { LandingEyebrow } from "../LandingEyebrow";
 import { getLandingCopy } from "../content";
 
 type BlogPageProps = {
@@ -14,9 +15,9 @@ export function BlogPage({ locale }: BlogPageProps) {
     <PageTransition>
       <section className="px-6 pb-20 pt-36 sm:px-8 lg:px-12 lg:pb-28 lg:pt-44">
         <div className="mx-auto max-w-7xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
+          <LandingEyebrow className="text-neutral-500">
             {locale === "id" ? "Blog" : "Blog"}
-          </p>
+          </LandingEyebrow>
           <h1 className="mt-6 max-w-5xl text-5xl font-semibold leading-none tracking-tight sm:text-7xl">
             {locale === "id"
               ? "Catatan tentang mesin, proses, dan produktivitas."
