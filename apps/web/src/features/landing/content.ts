@@ -19,7 +19,7 @@ export type ProductItem = {
 };
 
 const images: Record<LandingImageKey, string> = {
-  hero: "/landing/hero-machine.svg",
+  hero: "/landing/hero.webp",
   productHero: "/landing/product-hero-machine.svg",
   aboutHero: "/landing/about-machine.svg",
   precisionGrinder: "/landing/precision-grinder.svg",
