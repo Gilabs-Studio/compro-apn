@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1400" viewBox="0 0 1800 1400" role="img" aria-labelledby="title desc">
+  <title id="title">Vertical CNC machining center</title>
+  <desc id="desc">Minimal vertical machining center visual placeholder.</desc>
+  <rect width="1800" height="1400" fill="#111"/>
+  <rect x="0" y="0" width="1800" height="170" fill="#ffc72c"/>
+  <rect x="270" y="270" width="1120" height="760" fill="#f6f3ee"/>
+  <rect x="420" y="420" width="420" height="430" rx="22" fill="#111"/>
+  <rect x="488" y="502" width="112" height="220" rx="56" fill="#d7d7d7"/>
+  <rect x="652" y="502" width="112" height="220" rx="56" fill="#d7d7d7"/>
+  <rect x="1120" y="440" width="170" height="420" fill="#2e2e2e"/>
+  <rect x="270" y="1000" width="1120" height="100" fill="#191919"/>
+</svg>

@@ -43,62 +43,55 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 
   return {
-    metadataBase: new URL("https://indosupplier.id"),
+    metadataBase: new URL("https://adigunapresisi.co.id"),
     title: {
-      template: "%s | Indosupplier",
-      default: "Indosupplier - ERP, CRM, HRIS, POS & Finance",
+      template: "%s | PT Adiguna Presisi Nusantara",
+      default:
+        "PT Adiguna Presisi Nusantara - Precision Machinery & Manufacturing Solutions",
     },
     description:
-      "Indosupplier adalah software all-in-one ERP, CRM, HRIS, POS, dan Finance untuk bisnis Indonesia. Satu platform untuk operasional, penjualan, stok, HR, dan laporan keuangan.",
+      "PT Adiguna Presisi Nusantara menyediakan mesin CNC, mesin perkakas workshop, tooling machining, instalasi mesin, dan engineering support untuk industri Indonesia.",
     keywords: [
-      "ERP Indonesia",
-      "Aplikasi CRM",
-      "Sistem HRIS",
-      "Aplikasi Kasir POS",
-      "Software Finance",
-      "Indosupplier",
-      "Manajemen Bisnis Terintegrasi",
-      "All-in-one Software",
-      "Vendor ERP",
-      "Custom ERP",
-      "Custom ERP Indonesia",
-      "ERP Indonesia Murah",
-      "point of sales",
-      "pos kasir",
-      "software hrd",
-      "inventory software",
-      "sales erp",
-      "aplikasi pencatatan penjualan",
-      "sales management software",
-      "software manajemen penjualan",
+      "PT Adiguna Presisi Nusantara",
+      "mesin CNC Indonesia",
+      "mesin industri",
+      "mesin perkakas workshop",
+      "tooling machining",
+      "precision machinery",
+      "manufacturing solutions",
+      "instalasi mesin",
+      "engineering support",
+      "surface grinding machine",
+      "vertical machining center",
     ],
-    authors: [{ name: "Indosupplier" }],
-    creator: "Indosupplier",
-    publisher: "Indosupplier",
+    authors: [{ name: "PT Adiguna Presisi Nusantara" }],
+    creator: "PT Adiguna Presisi Nusantara",
+    publisher: "PT Adiguna Presisi Nusantara",
     openGraph: {
       type: "website",
       locale: locale === "id" ? "id_ID" : "en_US",
-      url: "https://indosupplier.id",
-      title: "Indosupplier - ERP, CRM, HRIS, POS & Finance",
+      url: "https://adigunapresisi.co.id",
+      title:
+        "PT Adiguna Presisi Nusantara - Precision Machinery & Manufacturing Solutions",
       description:
-        "Indosupplier adalah platform bisnis all-in-one untuk ERP, CRM, HRIS, POS, dan Finance di Indonesia.",
-      siteName: "Indosupplier",
+        "Penyedia mesin CNC, mesin perkakas workshop, tooling machining, instalasi mesin, dan engineering support untuk industri Indonesia.",
+      siteName: "PT Adiguna Presisi Nusantara",
       images: [
         {
-          url: "/screenshot/dashboard.webp",
+          url: "/landing/og-machine.svg",
           width: 1920,
           height: 1080,
-          alt: "Indosupplier dashboard preview",
+          alt: "PT Adiguna Presisi Nusantara precision machinery",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Indosupplier - ERP, CRM, HRIS, POS & Finance",
+      title:
+        "PT Adiguna Presisi Nusantara - Precision Machinery & Manufacturing Solutions",
       description:
-        "Indosupplier adalah platform bisnis all-in-one untuk ERP, CRM, HRIS, POS, dan Finance di Indonesia.",
-      creator: "@indosupplier",
-      images: ["/screenshot/dashboard.webp"],
+        "Penyedia mesin CNC, mesin perkakas workshop, tooling machining, instalasi mesin, dan engineering support untuk industri Indonesia.",
+      images: ["/landing/og-machine.svg"],
     },
     robots: {
       index: true,
@@ -112,7 +105,7 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     alternates: {
-      canonical: "https://indosupplier.id",
+      canonical: "https://adigunapresisi.co.id",
       languages: getLanguageAlternates("/"),
     },
   };

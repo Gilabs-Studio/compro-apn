@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1600" viewBox="0 0 2400 1600" role="img" aria-labelledby="title desc">
+  <title id="title">Clean precision workshop</title>
+  <desc id="desc">Minimal clean workshop visual placeholder.</desc>
+  <rect width="2400" height="1600" fill="#e8e3da"/>
+  <rect x="0" y="0" width="2400" height="700" fill="#1a1a1a"/>
+  <rect x="250" y="626" width="1520" height="330" fill="#f7f5ef"/>
+  <rect x="430" y="912" width="1120" height="72" fill="#101010"/>
+  <rect x="974" y="472" width="420" height="176" fill="#242424"/>
+  <rect x="1470" y="604" width="224" height="360" fill="#333"/>
+  <rect x="1696" y="682" width="152" height="210" fill="#f7f5ef"/>
+  <rect x="250" y="992" width="1520" height="42" fill="#303030"/>
+  <path d="M0 1220h2400v380H0z" fill="#d4cec3"/>
+</svg>

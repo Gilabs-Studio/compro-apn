@@ -1,0 +1,104 @@
+import { ArrowRight } from "lucide-react";
+import { Link } from "@/i18n/routing";
+import { PageTransition } from "../PageTransition";
+import { ParallaxImage } from "../ParallaxImage";
+import { Reveal } from "../Reveal";
+import { getLandingCopy, getLandingImage } from "../content";
+import { ProductCard } from "./ProductCard";
+
+type ProductPageProps = {
+  locale: string;
+};
+
+export function ProductPage({ locale }: ProductPageProps) {
+  const copy = getLandingCopy(locale);
+
+  return (
+    <PageTransition>
+      <section className="grid min-h-[92svh] bg-neutral-950 text-white lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="flex items-end px-6 pb-16 pt-36 sm:px-8 lg:px-12">
+          <div className="max-w-xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
+              {locale === "id" ? "Produk" : "Product"}
+            </p>
+            <h1 className="mt-6 text-5xl font-semibold leading-none tracking-tight sm:text-7xl">
+              {locale === "id"
+                ? "Mesin untuk workshop yang bekerja presisi."
+                : "Machines for workshops that work precisely."}
+            </h1>
+            <p className="mt-7 text-base leading-8 text-white/62">
+              {locale === "id"
+                ? "Pilihan mesin CNC, grinding, machining center, dan peralatan manufaktur yang dapat disesuaikan dengan target produksi pelanggan."
+                : "CNC, grinding, machining center, and manufacturing equipment options that can be tailored to customer production goals."}
+            </p>
+          </div>
+        </div>
+        <ParallaxImage
+          src={getLandingImage("productHero")}
+          alt="Industrial machine product hero"
+          priority
+          sizes="(min-width: 1024px) 58vw, 100vw"
+          className="min-h-[52svh] lg:min-h-[92svh]"
+          intensity={80}
+        />
+      </section>
+
+      <section className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32">
+        <div className="mx-auto max-w-7xl">
+          <Reveal className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
+                {locale === "id" ? "Katalog mesin" : "Machine catalog"}
+              </p>
+              <h2 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
+                {locale === "id"
+                  ? "Foto produk dibuat besar, bersih, dan fokus ke satu objek."
+                  : "Product photos are large, clean, and focused on one object."}
+              </h2>
+            </div>
+            <Link
+              href="/contact"
+              className="group inline-flex h-12 w-fit items-center gap-2 bg-neutral-950 px-6 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
+            >
+              {locale === "id" ? "Minta rekomendasi" : "Ask recommendation"}
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+            {copy.products.map((product, index) => (
+              <ProductCard key={product.name} product={product} index={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
+              {locale === "id" ? "Keunggulan" : "Advantages"}
+            </p>
+            <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
+              {locale === "id"
+                ? "Solusi lengkap, bukan pilihan acak."
+                : "Complete solutions, not random choices."}
+            </h2>
+          </Reveal>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {copy.advantages.map((advantage, index) => (
+              <Reveal key={advantage} delay={index * 0.06}>
+                <div className="min-h-40 border border-neutral-200 p-6 transition-colors hover:border-neutral-950 hover:bg-neutral-950 hover:text-white">
+                  <span className="text-sm font-semibold text-amber-500">
+                    0{index + 1}
+                  </span>
+                  <p className="mt-6 text-lg leading-7">{advantage}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+    </PageTransition>
+  );
+}

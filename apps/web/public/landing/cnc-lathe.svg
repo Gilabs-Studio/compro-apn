@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1400" viewBox="0 0 1800 1400" role="img" aria-labelledby="title desc">
+  <title id="title">CNC lathe system</title>
+  <desc id="desc">Minimal CNC lathe visual placeholder.</desc>
+  <rect width="1800" height="1400" fill="#181818"/>
+  <rect x="240" y="380" width="1180" height="520" fill="#f7f5ef"/>
+  <rect x="420" y="502" width="460" height="252" rx="24" fill="#111"/>
+  <rect x="500" y="558" width="120" height="136" rx="60" fill="#d9d9d9"/>
+  <rect x="672" y="558" width="120" height="136" rx="60" fill="#d9d9d9"/>
+  <rect x="1110" y="488" width="180" height="300" fill="#2e2e2e"/>
+  <rect x="240" y="880" width="1180" height="90" fill="#111"/>
+  <rect x="0" y="0" width="1800" height="140" fill="#ffc72c"/>
+</svg>

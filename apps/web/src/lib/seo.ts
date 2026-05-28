@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SEO_BASE_URL = "https://indosupplier.id";
+export const SEO_BASE_URL = "https://adigunapresisi.co.id";
 export const SUPPORTED_SEO_LOCALES = ["id", "en"] as const;
 
 type SupportedLocale = (typeof SUPPORTED_SEO_LOCALES)[number];
@@ -49,7 +49,7 @@ function getDefaultImageByPath(path: string): string {
     return "/screenshot/salary.webp";
   }
 
-  return "/screenshot/dashboard.webp";
+  return "/landing/og-machine.svg";
 }
 
 function normalizeLocale(locale: string): SupportedLocale {
@@ -105,7 +105,7 @@ export function buildLandingMetadata({
       url: `${SEO_BASE_URL}${canonicalPath}`,
       title,
       description,
-      siteName: "Indosupplier",
+      siteName: "PT Adiguna Presisi Nusantara",
       images: [
         {
           url: selectedImage,
