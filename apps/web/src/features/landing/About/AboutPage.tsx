@@ -15,7 +15,7 @@ export function AboutPage({ locale }: AboutPageProps) {
     <PageTransition>
       <section
         data-nav-theme="dark"
-        className="relative min-h-[88svh] overflow-hidden bg-neutral-950 text-white"
+        className="relative min-h-svh overflow-hidden bg-neutral-950 px-6 text-white sm:px-8 lg:px-12"
       >
         <ParallaxImage
           src={getLandingImage("aboutHero")}
@@ -23,11 +23,10 @@ export function AboutPage({ locale }: AboutPageProps) {
           priority
           sizes="100vw"
           className="absolute inset-0 h-full"
-          imageClassName="opacity-68"
           intensity={75}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/88 via-black/52 to-black/20" />
-        <div className="relative z-10 mx-auto flex min-h-[88svh] max-w-7xl items-end px-6 pb-16 pt-36 sm:px-8 lg:px-12">
+        <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/60 to-black/28" />
+        <div className="relative z-10 mx-auto flex min-h-svh max-w-7xl items-end py-20 lg:py-32">
           <div className="max-w-4xl">
             <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Tentang Kami" : "About Us"}

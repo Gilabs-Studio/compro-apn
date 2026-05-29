@@ -37,7 +37,7 @@ const productSlugs: LandingProductSlug[] = [
 const images: Record<LandingImageKey, string> = {
   hero: "/landing/hero.webp",
   productHero: "/landing/product-hero-machine3.webp",
-  aboutHero: "/landing/about-machine.svg",
+  aboutHero: "/landing/about-machine.webp",
   precisionGrinder: "/landing/HF-60200.webp",
   machiningCenter: "/landing/DX-870.webp",
   surfaceGrinder: "/landing/HF-4080.webp",
