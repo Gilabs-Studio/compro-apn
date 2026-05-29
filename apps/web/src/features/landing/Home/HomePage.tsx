@@ -75,7 +75,7 @@ export function HomePage({ locale }: HomePageProps) {
             maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1) 60%)',
           }}
         />
-        <div className="relative z-10 mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <Reveal>
             <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Adiguna dalam angka" : "Adiguna in numbers"}
