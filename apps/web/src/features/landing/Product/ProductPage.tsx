@@ -63,8 +63,8 @@ export function ProductPage({ locale }: ProductPageProps) {
               </LandingEyebrow>
               <h2 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
                 {locale === "id"
-                  ? "Perspektif Detail"
-                  : "Detailed Perspective"}
+                  ? "Pilihan Produk"
+                  : "Product Selection"}
               </h2>
             </div>
             <Link
