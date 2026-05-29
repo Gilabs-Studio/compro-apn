@@ -69,7 +69,7 @@ export function HomePage({ locale }: HomePageProps) {
         className="relative bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-28 overflow-hidden"
       >
         <div
-          className="absolute inset-0 bg-[url('/landing/geometric_minimal_circles.webp')] bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"
+          className="absolute inset-0 bg-[url('/landing/geometric_minimal_circles.webp')] bg-cover bg-center bg-no-repeat opacity-15 pointer-events-none"
           style={{
             WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1) 60%)',
             maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1) 60%)',
@@ -268,7 +268,7 @@ export function HomePage({ locale }: HomePageProps) {
 
       <section
         data-nav-theme="light"
-        className="px-6 pb-20 sm:px-8 lg:px-12 lg:pb-32"
+        className="bg-linear-to-b from-neutral-50 px-6 pb-20 sm:px-8 lg:px-12 lg:pb-32"
       >
         <Reveal>
           <Link

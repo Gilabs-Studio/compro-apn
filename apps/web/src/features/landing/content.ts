@@ -62,7 +62,7 @@ export function getLandingCopy(locale: string) {
 
   return {
     locale: isId ? "id" : "en",
-    company: "PT Adiguna Presisi Nusantara",
+    company: "Adiguna Presisi Nusantara",
     shortName: "Adiguna Presisi",
     tagline: isId ? "Presisi Tanpa Batas" : "Precision Without Limits",
     nav: [
@@ -86,11 +86,11 @@ export function getLandingCopy(locale: string) {
         label: isId ? "Mesin & Perkakas Bengkel" : "Machines & Workshop Tools",
       },
       {
-        value: "360°",
+        value: "-",
         label: isId ? "Dukungan Teknis Total" : "Total Technical Support",
       },
       {
-        value: "7+",
+        value: "-",
         label: isId ? "Sektor Industri Utama" : "Key Industrial Sectors",
       },
     ],
