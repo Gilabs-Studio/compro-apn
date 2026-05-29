@@ -13,16 +13,16 @@ type ProductCardProps = {
 
 export function ProductCard({ product, index = 0 }: ProductCardProps) {
   return (
-    <Link href={`/product/${product.slug}`} className="block">
+    <Link href={`/product/${product.slug}`} className="block h-full">
       <motion.article
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
         whileHover={{ y: -8 }}
-        className="group relative overflow-hidden bg-white"
+        className="group relative overflow-hidden bg-white flex h-full flex-col"
       >
-        <div className="relative aspect-4/3 overflow-hidden bg-white">
+        <div className="relative aspect-4/3 overflow-hidden bg-white flex-shrink-0">
           <Image
             src={getLandingImage(product.image)}
             alt={product.name}
@@ -35,7 +35,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             {product.category}
           </div>
         </div>
-        <div className="p-6">
+        <div className="p-6 flex flex-col flex-1">
           <div className="flex items-start justify-between gap-4">
             <h3 className="text-2xl font-semibold tracking-tight">
               {product.name}
@@ -47,7 +47,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           <p className="mt-4 text-sm leading-7 text-neutral-600">
             {product.description}
           </p>
-          <div className="mt-6 flex flex-wrap gap-2">
+          <div className="mt-6 flex flex-wrap gap-2 mt-auto">
             {product.specs.map((spec) => (
               <span
                 key={spec}

@@ -125,7 +125,7 @@ export function HomePage({ locale }: HomePageProps) {
                 : "Clean catalog design with absolute focus on technical machine details"}
             </p>
           </Reveal>
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div className="mt-14 grid gap-6 lg:grid-cols-3 items-stretch">
             {copy.products.slice(0, 3).map((product, index) => (
               <ProductCard key={product.name} product={product} index={index} />
             ))}
