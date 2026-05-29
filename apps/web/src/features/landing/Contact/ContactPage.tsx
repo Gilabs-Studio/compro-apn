@@ -18,7 +18,7 @@ export function ContactPage({ locale }: ContactPageProps) {
         className="relative bg-neutral-950 px-6 pb-20 pt-36 text-white sm:px-8 lg:px-12 lg:pb-28 lg:pt-44 overflow-hidden"
       >
         <div
-          className="absolute inset-0 bg-[url('/landing/geometric_dark_bg.webp')] bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"
+          className="absolute inset-0 bg-[url('/landing/geometric_contact_hero.png')] bg-cover bg-center bg-no-repeat opacity-15 pointer-events-none invert mix-blend-screen"
         />
         <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
