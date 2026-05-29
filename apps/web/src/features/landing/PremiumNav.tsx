@@ -19,7 +19,10 @@ export function PremiumNav({ locale }: PremiumNavProps) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState<NavTheme>("dark");
+  const [isAtTop, setIsAtTop] = useState(true);
+  const [isHidden, setIsHidden] = useState(false);
   const themeMapRef = useRef(new Map<Element, number>());
+  const lastScrollYRef = useRef(0);
   const copy = getLandingCopy(locale);
   const nextLocale = activeLocale === "id" ? "en" : "id";
 
@@ -74,6 +77,39 @@ export function PremiumNav({ locale }: PremiumNavProps) {
   }, [pathname]);
 
   useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const isNearTop = currentScrollY <= 12;
+      const previousScrollY = lastScrollYRef.current;
+      const scrollingDown = currentScrollY > previousScrollY + 4;
+      const scrollingUp = currentScrollY < previousScrollY - 4;
+
+      lastScrollYRef.current = currentScrollY;
+      setIsAtTop(isNearTop);
+
+      if (isNearTop) {
+        setIsHidden(false);
+        return;
+      }
+
+      if (scrollingDown) {
+        setIsHidden(true);
+        return;
+      }
+
+      if (scrollingUp) {
+        setIsHidden(false);
+      }
+    };
+
+    lastScrollYRef.current = window.scrollY;
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [pathname]);
+
+  useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
 
     return () => {
@@ -82,21 +118,33 @@ export function PremiumNav({ locale }: PremiumNavProps) {
   }, [isOpen]);
 
   const isDarkTheme = theme === "dark";
+  const isTransparentSurface = isAtTop;
+  const showSurface = !isTransparentSurface || isOpen;
+  const isNavVisible = !isHidden || isOpen || isAtTop;
 
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8",
+        "fixed inset-x-0 top-0 z-50 pt-4",
         isOpen && "z-60",
       )}
     >
       <motion.nav
         initial={{ opacity: 0, y: -16 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={{
+          opacity: isNavVisible ? 1 : 0,
+          y: isNavVisible ? 0 : -28,
+        }}
         transition={{ duration: 0.45, ease: "easeOut" }}
         className={cn(
-          "mx-auto flex h-14 max-w-7xl items-center justify-between px-0 sm:h-16",
+          "mx-auto flex h-14 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12 transition-[background-color,box-shadow,backdrop-filter,padding] duration-300 sm:h-16",
           isDarkTheme ? "text-white" : "text-neutral-950",
+          showSurface
+            ? isDarkTheme
+              ? "rounded-full border border-white/10 bg-neutral-950/72 shadow-lg shadow-black/10 backdrop-blur-xl"
+              : "rounded-full border border-neutral-950/8 bg-[#f6f3ee]/78 shadow-lg shadow-black/5 backdrop-blur-xl"
+            : "rounded-none border-transparent bg-transparent shadow-none backdrop-blur-0",
+          isHidden && !isOpen ? "pointer-events-none" : "pointer-events-auto",
         )}
       >
         <Link href="/" className="group flex items-center gap-3">
