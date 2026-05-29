@@ -1,5 +1,12 @@
 export type LandingLocale = "id" | "en";
 
+export type LandingProductSlug =
+  | "hf-60200"
+  | "dx-870"
+  | "hf-4080"
+  | "horizontal-boring-mill"
+  | "cnc-lathe";
+
 export type LandingImageKey =
   | "hero"
   | "productHero"
@@ -11,6 +18,7 @@ export type LandingImageKey =
   | "lathe";
 
 export type ProductItem = {
+  slug: LandingProductSlug;
   name: string;
   category: string;
   description: string;
@@ -18,9 +26,17 @@ export type ProductItem = {
   specs: string[];
 };
 
+const productSlugs: LandingProductSlug[] = [
+  "hf-60200",
+  "dx-870",
+  "hf-4080",
+  "horizontal-boring-mill",
+  "cnc-lathe",
+];
+
 const images: Record<LandingImageKey, string> = {
   hero: "/landing/hero.webp",
-  productHero: "/landing/product-hero-machine.svg",
+  productHero: "/landing/product-hero-machine3.webp",
   aboutHero: "/landing/about-machine.svg",
   precisionGrinder: "/landing/HF-60200.webp",
   machiningCenter: "/landing/DX-870.webp",
@@ -29,31 +45,16 @@ const images: Record<LandingImageKey, string> = {
   boringMill: "/landing/Gemini_Generated_Image_8gvhv18gvhv18gvh.webp",
 };
 
-const imagePrompts: Record<LandingImageKey, string> = {
-  hero:
-    "Hyperrealistic 8k studio photograph of one premium CNC manufacturing machine as the only main object, white and dark graphite body, soft directional light, clean industrial background, shallow depth of field, luxury company profile mood, no text, no people, no logo.",
-  productHero:
-    "Hyperrealistic 8k product photograph of one large precision machining center, isolated as the main object in a minimal industrial studio, graphite wall, clean floor reflection, premium catalog lighting, no text, no people, no logo.",
-  aboutHero:
-    "Hyperrealistic 8k editorial photograph of one precision manufacturing machine in a clean workshop, machine is the only dominant object, elegant white space, natural industrial light, premium company profile tone, no text, no people, no logo.",
-  precisionGrinder:
-    "Hyperrealistic 8k product photograph of one horizontal precision grinder machine, white body with black base, centered object, clean graphite studio background, premium machinery catalog lighting, no text, no logo.",
-  machiningCenter:
-    "Hyperrealistic 8k product photograph of one vertical CNC machining center, white and black enclosure, single object focus, subtle yellow studio accent, high detail metal texture, no text, no logo.",
-  surfaceGrinder:
-    "Hyperrealistic 8k product photograph of one surface grinding machine, white industrial body, isolated object focus, modern dark manufacturing backdrop, soft shadow, no text, no logo.",
-  boringMill:
-    "Hyperrealistic 8k product photograph of one horizontal boring mill machine, white and graphite industrial body, single object focus, clean studio lighting, no text, no logo.",
-  lathe:
-    "Hyperrealistic 8k product photograph of one CNC lathe machine, white enclosure with dark glass door, single object focus, minimal industrial studio, premium reflection, no text, no logo.",
-};
-
 export function getLandingImage(key: LandingImageKey) {
   return images[key];
 }
 
-export function getLandingImagePrompt(key: LandingImageKey) {
-  return imagePrompts[key];
+export function getLandingProductSlugs() {
+  return productSlugs;
+}
+
+export function getLandingProduct(locale: string, slug: LandingProductSlug) {
+  return getLandingCopy(locale).products.find((product) => product.slug === slug);
 }
 
 export function getLandingCopy(locale: string) {
@@ -172,6 +173,7 @@ export function getLandingCopy(locale: string) {
     ],
     products: [
       {
+        slug: "hf-60200",
         name: "HF-60200 Precision Grinder",
         category: isId ? "Grinding Machine" : "Grinding Machine",
         description: isId
@@ -181,6 +183,7 @@ export function getLandingCopy(locale: string) {
         specs: ["Heavy-duty bed", "Long travel", "Stable finishing"],
       },
       {
+        slug: "dx-870",
         name: "DX-870 Machining Center",
         category: isId ? "CNC Machining" : "CNC Machining",
         description: isId
@@ -190,6 +193,7 @@ export function getLandingCopy(locale: string) {
         specs: ["VMC enclosure", "Digital control", "Production ready"],
       },
       {
+        slug: "hf-4080",
         name: "HF-4080 Surface Grinder",
         category: isId ? "Surface Grinding" : "Surface Grinding",
         description: isId
@@ -199,6 +203,7 @@ export function getLandingCopy(locale: string) {
         specs: ["Fine tolerance", "Workshop fit", "Clean surface"],
       },
       {
+        slug: "horizontal-boring-mill",
         name: "Horizontal Boring Mill",
         category: isId ? "Heavy Machining" : "Heavy Machining",
         description: isId
@@ -208,6 +213,7 @@ export function getLandingCopy(locale: string) {
         specs: ["Large component", "Rigid table", "Industrial scale"],
       },
       {
+        slug: "cnc-lathe",
         name: "CNC Lathe System",
         category: isId ? "Turning Center" : "Turning Center",
         description: isId

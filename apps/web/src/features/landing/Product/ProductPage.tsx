@@ -18,9 +18,9 @@ export function ProductPage({ locale }: ProductPageProps) {
     <PageTransition>
       <section
         data-nav-theme="dark"
-        className="grid min-h-[92svh] bg-neutral-950 text-white lg:grid-cols-[0.85fr_1.15fr]"
+        className="grid min-h-screen bg-neutral-950 text-white lg:grid-cols-[0.9fr_1.1fr]"
       >
-        <div className="flex items-end px-6 pb-16 pt-36 sm:px-8 lg:px-12">
+        <div className="flex items-end px-6 pb-16 pt-36 sm:px-8 lg:px-12 lg:min-h-screen">
           <div className="max-w-xl">
             <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Produk" : "Product"}
@@ -41,9 +41,10 @@ export function ProductPage({ locale }: ProductPageProps) {
           src={getLandingImage("productHero")}
           alt="Industrial machine product hero"
           priority
-          sizes="(min-width: 1024px) 58vw, 100vw"
-          className="min-h-[52svh] lg:min-h-[92svh]"
+          sizes="(min-width: 1024px) 60vw, 100vw"
+          className="min-h-[56svh] lg:min-h-screen"
           intensity={80}
+          imageClassName="object-cover object-center"
         />
       </section>
 
