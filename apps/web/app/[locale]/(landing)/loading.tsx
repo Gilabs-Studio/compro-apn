@@ -1,5 +1,0 @@
-import { LandingPageSkeleton } from "@/features/landing/LandingPageSkeleton";
-
-export default function MarketingLoading() {
-  return <LandingPageSkeleton />;
-}
