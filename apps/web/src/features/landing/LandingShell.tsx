@@ -1,4 +1,5 @@
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { getLandingCopy } from "./content";
 import { PremiumNav } from "./PremiumNav";
@@ -9,7 +10,7 @@ type LandingShellProps = {
   locale: string;
 };
 
-export function LandingShell({ children, locale }: LandingShellProps) {
+export function LandingShell({ children, locale }: Readonly<LandingShellProps>) {
   const copy = getLandingCopy(locale);
 
   return (
@@ -17,16 +18,22 @@ export function LandingShell({ children, locale }: LandingShellProps) {
       <PremiumNav locale={locale} />
       <TransitionWrapper>
         <div className="flex flex-col min-h-screen">
-          <div className="flex-grow">
+          <div className="grow">
             {children}
           </div>
           <footer
             data-nav-theme="dark"
             className="relative bg-neutral-950 px-6 py-16 text-white sm:px-8 lg:px-12 overflow-hidden"
           >
-            <div
-              className="absolute inset-0 bg-[url('/landing/geometric_line_art.png')] bg-cover bg-center bg-no-repeat opacity-5 pointer-events-none invert mix-blend-screen"
-            />
+            <div className="absolute inset-0 opacity-5 pointer-events-none invert mix-blend-screen">
+              <Image
+                src="/landing/geometric_line_art.png"
+                alt="Geometric line art background"
+                fill
+                sizes="100vw"
+                className="object-cover"
+              />
+            </div>
             <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">

@@ -6,7 +6,7 @@ import { motion, AnimatePresence, useIsPresent } from "framer-motion";
 import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 // FrozenRouter freezes the context of Next.js LayoutRouter to prevent immediate unmount of children content
-function FrozenRouter({ children }: { children: React.ReactNode }) {
+function FrozenRouter({ children }: Readonly<{ children: React.ReactNode }>) {
   const context = useContext(LayoutRouterContext ?? {});
   const [frozen] = useState(() => context);
 
@@ -45,10 +45,10 @@ const variants = {
 function TransitionItem({
   children,
   isForward,
-}: {
+}: Readonly<{
   children: React.ReactNode;
   isForward: boolean;
-}) {
+}>) {
   const isPresent = useIsPresent();
 
   return (
@@ -75,7 +75,7 @@ function TransitionItem({
   );
 }
 
-export function TransitionWrapper({ children }: { children: React.ReactNode }) {
+export function TransitionWrapper({ children }: Readonly<{ children: React.ReactNode }>) {
   const pathname = usePathname();
   const [currentPath, setCurrentPath] = useState(pathname);
   const [prevPath, setPrevPath] = useState<string | null>(null);

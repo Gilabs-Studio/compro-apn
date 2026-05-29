@@ -1,3 +1,7 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { PageTransition } from "../PageTransition";
 import { Reveal } from "../Reveal";
@@ -8,8 +12,18 @@ type ContactPageProps = {
   locale: string;
 };
 
-export function ContactPage({ locale }: ContactPageProps) {
+export function ContactPage({ locale }: Readonly<ContactPageProps>) {
   const copy = getLandingCopy(locale);
+  const [showMap, setShowMap] = useState(false);
+
+  useEffect(() => {
+    // Defer mounting Google Maps to avoid blocking main thread on initial load
+    const timeoutId = setTimeout(() => {
+      setShowMap(true);
+    }, 1200);
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   const gmapsEmbedUrl =
     "https://www.google.com/maps?q=Grand+Cendrawasih+Asri+Jl.+Cendrawasih+Kav.5+Desa%2FKelurahan+Cipayung+Kec.+Ciputat+Kota+Tangerang+Selatan+Banten+15411&output=embed";
   const gmapsOpenUrl =
@@ -21,9 +35,16 @@ export function ContactPage({ locale }: ContactPageProps) {
         data-nav-theme="dark"
         className="relative bg-neutral-950 px-6 pb-20 pt-36 text-white sm:px-8 lg:px-12 lg:pb-28 lg:pt-44 overflow-hidden"
       >
-        <div
-          className="absolute inset-0 bg-[url('/landing/geometric_contact_hero.png')] bg-cover bg-center bg-no-repeat opacity-15 pointer-events-none invert mix-blend-screen"
-        />
+        <div className="absolute inset-0 opacity-15 pointer-events-none invert mix-blend-screen">
+          <Image
+            src="/landing/geometric_contact_hero.png"
+            alt="Geometric background"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
         <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <LandingEyebrow className="text-amber-300">
@@ -62,7 +83,7 @@ export function ContactPage({ locale }: ContactPageProps) {
                     <p key={line}>{line}</p>
                   ))}
                 </div>
-                                <a
+                <a
                   href={gmapsOpenUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -106,14 +127,23 @@ export function ContactPage({ locale }: ContactPageProps) {
           </Reveal>
 
           <Reveal>
-            <div className="h-[55vh] overflow-hidden lg:h-screen">
-              <iframe
-                src={gmapsEmbedUrl}
-                title={locale === "id" ? "Peta lokasi kantor" : "Office location map"}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="h-full w-full"
-              />
+            <div className="h-[55vh] overflow-hidden lg:h-screen bg-neutral-900 flex items-center justify-center relative">
+              {showMap ? (
+                <iframe
+                  src={gmapsEmbedUrl}
+                  title={locale === "id" ? "Peta lokasi kantor" : "Office location map"}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-full w-full"
+                />
+              ) : (
+                <div className="flex flex-col items-center gap-3 text-neutral-400">
+                  <div className="size-6 animate-spin rounded-full border-2 border-neutral-700 border-t-amber-300" />
+                  <span className="text-sm font-light">
+                    {locale === "id" ? "Memuat peta..." : "Loading map..."}
+                  </span>
+                </div>
+              )}
             </div>
           </Reveal>
         </div>

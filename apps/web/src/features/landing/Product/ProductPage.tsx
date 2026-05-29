@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { PageTransition } from "../PageTransition";
 import { ParallaxImage } from "../ParallaxImage";
@@ -11,7 +12,7 @@ type ProductPageProps = {
   locale: string;
 };
 
-export function ProductPage({ locale }: ProductPageProps) {
+export function ProductPage({ locale }: Readonly<ProductPageProps>) {
   const copy = getLandingCopy(locale);
 
   return (
@@ -21,9 +22,15 @@ export function ProductPage({ locale }: ProductPageProps) {
         className="grid min-h-screen bg-neutral-950 text-white lg:grid-cols-[0.9fr_1.1fr]"
       >
         <div className="flex items-end px-6 pb-16 pt-36 sm:px-8 lg:px-12 lg:min-h-screen relative overflow-hidden">
-          <div
-            className="absolute inset-0 bg-[url('/landing/geometric_minimal_curves.webp')] bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"
-          />
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <Image
+              src="/landing/geometric_minimal_curves.webp"
+              alt="Geometric minimal curves background"
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
           <div className="relative z-10 max-w-xl">
             <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Produk" : "Product"}

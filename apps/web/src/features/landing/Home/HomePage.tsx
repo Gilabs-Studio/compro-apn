@@ -12,7 +12,7 @@ type HomePageProps = {
   locale: string;
 };
 
-export function HomePage({ locale }: HomePageProps) {
+export function HomePage({ locale }: Readonly<HomePageProps>) {
   const copy = getLandingCopy(locale);
 
   return (
@@ -70,12 +70,20 @@ export function HomePage({ locale }: HomePageProps) {
         className="relative bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-28 overflow-hidden"
       >
         <div
-          className="absolute inset-0 bg-[url('/landing/geometric_minimal_circles.webp')] bg-cover bg-center bg-no-repeat opacity-15 pointer-events-none"
+          className="absolute inset-0 opacity-15 pointer-events-none"
           style={{
             WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1) 60%)',
             maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1) 60%)',
           }}
-        />
+        >
+          <Image
+            src="/landing/geometric_minimal_circles.webp"
+            alt="Geometric minimal circles background"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
         <div className="relative z-10 mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <Reveal>
             <LandingEyebrow className="text-amber-300">

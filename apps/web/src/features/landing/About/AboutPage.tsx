@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PageTransition } from "../PageTransition";
 import { ParallaxImage } from "../ParallaxImage";
 import { Reveal } from "../Reveal";
@@ -8,7 +9,7 @@ type AboutPageProps = {
   locale: string;
 };
 
-export function AboutPage({ locale }: AboutPageProps) {
+export function AboutPage({ locale }: Readonly<AboutPageProps>) {
   const copy = getLandingCopy(locale);
 
   return (
@@ -83,9 +84,15 @@ export function AboutPage({ locale }: AboutPageProps) {
         data-nav-theme="dark"
         className="relative flex min-h-svh items-center bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-32 overflow-hidden"
       >
-        <div
-          className="absolute inset-0 bg-[url('/landing/geometric_line_art.png')] bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none invert mix-blend-screen"
-        />
+        <div className="absolute inset-0 opacity-10 pointer-events-none invert mix-blend-screen">
+          <Image
+            src="/landing/geometric_line_art.png"
+            alt="Geometric line art background"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl">
           <Reveal className="max-w-3xl">
             <LandingEyebrow className="text-amber-300">
