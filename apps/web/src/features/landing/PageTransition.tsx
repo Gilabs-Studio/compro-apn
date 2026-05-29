@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
+import { useEffect, useState, type ReactNode } from "react";
 
 type PageTransitionProps = {
   children: ReactNode;
@@ -9,14 +9,27 @@ type PageTransitionProps = {
 };
 
 export function PageTransition({ children, className }: PageTransitionProps) {
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    const frame = window.requestAnimationFrame(() => {
+      setIsReady(true);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
-    <motion.main
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
+    <main
+      className={cn(
+        "transition-[opacity,transform] duration-500 ease-out motion-reduce:transform-none motion-reduce:transition-none",
+        isReady ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
+        className,
+      )}
     >
       {children}
-    </motion.main>
+    </main>
   );
 }

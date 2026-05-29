@@ -1,5 +1,7 @@
 import { LandingShell } from "@/features/landing/LandingShell";
 
+export const revalidate = 86400;
+
 export default async function MarketingLayout({
   children,
   params,
