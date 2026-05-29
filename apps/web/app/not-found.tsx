@@ -1,66 +1,41 @@
 import Link from "next/link";
-import { headers, cookies } from "next/headers";
 import { getTranslations, getLocale } from "next-intl/server";
-import { Button } from "@/components/ui/button";
 
 export default async function NotFound() {
   const t = await getTranslations("notFound");
   const locale = await getLocale();
-  
-  // Check if user might be in dashboard context
-  // Note: This is a heuristic check - client-side will do proper verification
-  // 1. Check if user has access token cookie (may indicate authenticated session)
-  const cookieStore = await cookies();
-  const accessToken = cookieStore.get("indosupplier_access_token")?.value;
-  const hasAccessToken = Boolean(accessToken);
-  
-  // 2. Check referer header for dashboard routes
-  const headersList = await headers();
-  const referer = headersList.get("referer") || "";
-  const isDashboardReferer = referer.includes("/dashboard");
-  
-  // Determine if this is likely a dashboard route not-found
-  // Note: Cookie presence is not a guarantee of valid session,
-  // but provides better UX by redirecting to dashboard if likely in that context
-  const isDashboardRoute = hasAccessToken || isDashboardReferer;
-  
-  // Determine redirect URL
-  const redirectUrl = isDashboardRoute 
-    ? `/${locale}/dashboard` 
-    : `/${locale}/login`;
-  
-  // Dashboard layout has 4rem header, so adjust min-height
-  // For non-dashboard, use full screen height
-  // Note: We can't use DashboardLayout here because root not-found.tsx
-  // is not wrapped by [locale]/layout.tsx that provides NextIntlClientProvider
-  // So we just use conditional styling to match dashboard appearance
-  const containerClass = isDashboardRoute
-    ? "flex min-h-[calc(100vh-4rem)] items-center justify-center px-4"
-    : "flex min-h-screen items-center justify-center px-4";
-  
-  // Use div for dashboard (will be wrapped by DashboardLayout from route group if available)
-  // Use main for non-dashboard (standalone page)
-  const Container = isDashboardRoute ? "div" : "main";
+
+  // For company profile site we always point back to the locale root
+  const redirectUrl = `/${locale}`;
+
+  const containerClass = "flex min-h-screen items-center justify-center px-4";
 
   return (
-    <Container className={containerClass}>
-      <div className="flex flex-col items-center text-center space-y-3">
-        <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-muted-foreground">
+    <main className={`relative isolate overflow-hidden bg-neutral-950 text-white ${containerClass}`}>
+      <div className="pointer-events-none absolute inset-0 bg-neutral-950" />
+      <div className="pointer-events-none absolute inset-0 bg-[url('/landing/geometric_line_art.png')] bg-cover bg-center bg-no-repeat opacity-15 invert mix-blend-screen" />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-black/25 via-transparent to-black/70" />
+
+      <div className="relative z-10 w-full max-w-md text-center">
+        <p className="text-[11px] font-medium uppercase tracking-[0.26em] text-white/55">
           {t("label")}
         </p>
 
-        <h1 className="text-base sm:text-lg font-semibold text-foreground">
+        <p className="mt-3 text-7xl font-semibold leading-none tracking-tight text-white sm:text-8xl">
+          404
+        </p>
+
+        <h1 className="mt-4 text-lg font-semibold text-white/92 sm:text-xl">
           {t("title")}
         </h1>
 
-        <p className="max-w-sm text-xs sm:text-sm text-muted-foreground">
-          {t("description")}
-        </p>
-
-        <Button asChild size="sm" className="mt-2">
-          <Link href={redirectUrl}>{t("backHome")}</Link>
-        </Button>
+        <Link
+          href={redirectUrl}
+          className="mt-8 inline-flex h-12 items-center justify-center bg-white px-6 text-sm font-semibold text-neutral-950 transition-transform duration-300 hover:-translate-y-0.5"
+        >
+          {t("backHome")}
+        </Link>
       </div>
-    </Container>
+    </main>
   );
 }
