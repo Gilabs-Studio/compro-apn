@@ -25,6 +25,7 @@ export function HomePage({ locale }: Readonly<HomePageProps>) {
           src={getLandingImage("hero")}
           alt="Premium CNC manufacturing machine"
           priority
+          fetchPriority="high"
           intensity={400}
           sizes="100vw"
           className="absolute inset-0 h-full"

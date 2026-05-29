@@ -22,6 +22,7 @@ export function AboutPage({ locale }: Readonly<AboutPageProps>) {
           src={getLandingImage("aboutHero")}
           alt="Precision manufacturing workshop"
           priority
+          fetchPriority="high"
           sizes="100vw"
           className="absolute inset-0 h-full"
           intensity={400}

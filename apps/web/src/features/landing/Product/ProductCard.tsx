@@ -9,7 +9,7 @@ type ProductCardProps = {
   index?: number;
 };
 
-export function ProductCard({ product, index = 0 }: ProductCardProps) {
+export function ProductCard({ product, index = 0 }: Readonly<ProductCardProps>) {
   return (
     <motion.article
       initial={{ opacity: 0, y: 24 }}
@@ -23,7 +23,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
           src={getLandingImage(product.image)}
           alt={product.name}
           fill
-          sizes="(min-width: 1024px) 33vw, 100vw"
+          sizes="(min-width: 1280px) 580px, (min-width: 1024px) 50vw, (min-width: 768px) 50vw, 100vw"
           className="object-contain p-6"
         />
         <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-black/55 via-black/20 to-transparent" />

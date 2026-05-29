@@ -11,6 +11,7 @@ type ParallaxImageProps = {
   className?: string;
   imageClassName?: string;
   priority?: boolean;
+  fetchPriority?: "high" | "low" | "auto";
   sizes?: string;
   intensity?: number;
   objectPosition?: string;
@@ -22,10 +23,11 @@ export function ParallaxImage({
   className,
   imageClassName,
   priority = false,
+  fetchPriority,
   sizes = "(min-width: 1024px) 50vw, 100vw",
   intensity = 70,
   objectPosition = "center",
-}: ParallaxImageProps) {
+}: Readonly<ParallaxImageProps>) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -41,6 +43,7 @@ export function ParallaxImage({
           alt={alt}
           fill
           priority={priority}
+          fetchPriority={fetchPriority}
           sizes={sizes}
           className={cn("object-cover", imageClassName)}
           style={{ objectPosition }}

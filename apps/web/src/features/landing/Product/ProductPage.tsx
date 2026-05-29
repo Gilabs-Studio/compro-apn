@@ -51,6 +51,7 @@ export function ProductPage({ locale }: Readonly<ProductPageProps>) {
           src={getLandingImage("productHero")}
           alt="Industrial machine product hero"
           priority
+          fetchPriority="high"
           sizes="(min-width: 1024px) 60vw, 100vw"
           className="min-h-[56svh] lg:min-h-screen"
           intensity={400}
