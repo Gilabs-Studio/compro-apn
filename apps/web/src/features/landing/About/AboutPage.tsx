@@ -84,7 +84,7 @@ export function AboutPage({ locale }: AboutPageProps) {
         className="relative bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-32 overflow-hidden"
       >
         <div
-          className="absolute inset-0 bg-[url('/landing/geometric_dark_bg.webp')] bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"
+          className="absolute inset-0 bg-[url('/landing/geometric_line_art.png')] bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none invert mix-blend-screen"
         />
         <div className="relative z-10 mx-auto max-w-7xl">
           <Reveal className="max-w-3xl">
