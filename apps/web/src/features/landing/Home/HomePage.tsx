@@ -31,7 +31,7 @@ export function HomePage({ locale }: HomePageProps) {
         />
         <div className="absolute inset-0 bg-linear-to-r from-black/85 via-black/45 to-black/20" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-t from-neutral-950 to-transparent" />
-        <div className="relative z-10 mx-auto flex min-h-[92svh] max-w-7xl items-end pb-20 pt-36">
+        <div className="relative z-10 mx-auto flex min-h-[92svh] max-w-7xl items-end pb-20 pt-36 px-6 sm:px-8 lg:px-12">
           <div className="max-w-4xl">
             <h1 className="mt-6 text-5xl font-semibold leading-[0.95] tracking-tight sm:text-7xl lg:text-8xl">
               {copy.company}
