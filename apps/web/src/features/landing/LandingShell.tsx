@@ -27,7 +27,7 @@ export function LandingShell({ children, locale }: LandingShellProps) {
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
               {copy.company}
             </p>
-            <h2 className="mt-5 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
+            <h2 className="mt-5 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl whitespace-pre-line">
               {copy.tagline}
             </h2>
           </div>

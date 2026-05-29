@@ -27,12 +27,12 @@ export function ContactPage({ locale }: ContactPageProps) {
         <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <LandingEyebrow className="text-amber-300">
-              {locale === "id" ? "Kontak" : "Contact"}
+              {locale === "id" ? "Hubungi Kami" : "Contact Us"}
             </LandingEyebrow>
             <h1 className="mt-6 text-5xl font-semibold leading-none tracking-tight sm:text-7xl">
               {locale === "id"
-                ? "Konsultasi Mesin"
-                : "Machine Consultation"}
+                ? "Konsultasi Teknis"
+                : "Technical Consultation"}
             </h1>
           </div>
           <p className="max-w-2xl text-base leading-8 text-white/62">

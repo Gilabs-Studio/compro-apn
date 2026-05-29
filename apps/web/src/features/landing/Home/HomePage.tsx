@@ -79,12 +79,12 @@ export function HomePage({ locale }: HomePageProps) {
         <div className="relative z-10 mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <Reveal>
             <LandingEyebrow className="text-amber-300">
-              {locale === "id" ? "Adiguna dalam angka" : "Adiguna in numbers"}
+              {locale === "id" ? "Kapabilitas Kami" : "Our Capabilities"}
             </LandingEyebrow>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
               {locale === "id"
-                ? "Teknologi Presisi"
-                : "Precision Technology"}
+                ? "Solusi Presisi Terintegrasi"
+                : "Integrated Precision Solutions"}
             </h2>
           </Reveal>
           <div className="grid gap-6 sm:grid-cols-3">
@@ -112,18 +112,18 @@ export function HomePage({ locale }: HomePageProps) {
           <Reveal className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div>
               <LandingEyebrow className="text-neutral-500">
-                {locale === "id" ? "Produk" : "Products"}
+                {locale === "id" ? "Produk Utama" : "Featured Products"}
               </LandingEyebrow>
               <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
                 {locale === "id"
-                  ? "Karakter Kuat"
-                  : "Strong Visual Presence"}
+                  ? "Portofolio Mesin Presisi"
+                  : "Precision Machinery Portfolio"}
               </h2>
             </div>
             <p className="max-w-xl text-base leading-8 text-neutral-600 lg:ml-auto">
               {locale === "id"
-                ? "Desain katalog bersih dengan fokus penuh pada detail teknis mesin"
-                : "Clean catalog design with absolute focus on technical machine details"}
+                ? "Katalog sistem mesin perkakas berstandar tinggi yang dirancang untuk performa maksimal dan akurasi mutlak."
+                : "High-standard machine tool systems engineered for maximum performance and absolute accuracy."}
             </p>
           </Reveal>
           <div className="mt-14 grid gap-6 lg:grid-cols-3 items-stretch">

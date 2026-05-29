@@ -64,7 +64,7 @@ export function getLandingCopy(locale: string) {
     locale: isId ? "id" : "en",
     company: "Adiguna Presisi Nusantara",
     shortName: "Adiguna Presisi",
-    tagline: isId ? "Presisi Tanpa Batas" : "Precision Without Limits",
+    tagline: "Make Your Dream\nCome True",
     nav: [
       { label: isId ? "Beranda" : "Home", href: "/" },
       { label: isId ? "Produk" : "Product", href: "/product" },
@@ -78,7 +78,7 @@ export function getLandingCopy(locale: string) {
         ? "Mesin CNC premium, perkakas presisi, instalasi, dan dukungan teknik ahli untuk industri manufaktur Anda"
         : "Premium CNC machines, precision tooling, expert installation, and engineering support for your manufacturing needs",
       primaryCta: isId ? "Lihat Produk" : "View Products",
-      secondaryCta: isId ? "Konsultasi Mesin" : "Machine Consultation",
+      secondaryCta: isId ? "Konsultasi Teknis" : "Technical Consultation",
     },
     stats: [
       {
