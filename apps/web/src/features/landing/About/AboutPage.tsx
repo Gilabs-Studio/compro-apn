@@ -47,9 +47,9 @@ export function AboutPage({ locale }: AboutPageProps) {
 
       <section
         data-nav-theme="light"
-        className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32"
+        className="relative flex min-h-svh items-center px-6 py-20 sm:px-8 lg:px-12 lg:py-32"
       >
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="mx-auto w-full max-w-7xl grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal>
             <LandingEyebrow className="text-neutral-500">
               {locale === "id" ? "Visi" : "Vision"}
@@ -81,12 +81,12 @@ export function AboutPage({ locale }: AboutPageProps) {
 
       <section
         data-nav-theme="dark"
-        className="relative bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-32 overflow-hidden"
+        className="relative flex min-h-svh items-center bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-32 overflow-hidden"
       >
         <div
           className="absolute inset-0 bg-[url('/landing/geometric_line_art.png')] bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none invert mix-blend-screen"
         />
-        <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="relative z-10 mx-auto w-full max-w-7xl">
           <Reveal className="max-w-3xl">
             <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Nilai perusahaan" : "Company values"}
