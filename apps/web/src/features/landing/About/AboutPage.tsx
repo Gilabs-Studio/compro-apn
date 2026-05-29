@@ -13,7 +13,10 @@ export function AboutPage({ locale }: AboutPageProps) {
 
   return (
     <PageTransition>
-      <section className="relative min-h-[88svh] overflow-hidden bg-neutral-950 text-white">
+      <section
+        data-nav-theme="dark"
+        className="relative min-h-[88svh] overflow-hidden bg-neutral-950 text-white"
+      >
         <ParallaxImage
           src={getLandingImage("aboutHero")}
           alt="Precision manufacturing workshop"
@@ -43,7 +46,10 @@ export function AboutPage({ locale }: AboutPageProps) {
         </div>
       </section>
 
-      <section className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32">
+      <section
+        data-nav-theme="light"
+        className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32"
+      >
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <Reveal>
             <LandingEyebrow className="text-neutral-500">
@@ -74,7 +80,10 @@ export function AboutPage({ locale }: AboutPageProps) {
         </div>
       </section>
 
-      <section className="bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-32">
+      <section
+        data-nav-theme="dark"
+        className="bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-32"
+      >
         <div className="mx-auto max-w-7xl">
           <Reveal className="max-w-3xl">
             <LandingEyebrow className="text-amber-300">
@@ -99,7 +108,10 @@ export function AboutPage({ locale }: AboutPageProps) {
         </div>
       </section>
 
-      <section className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32">
+      <section
+        data-nav-theme="light"
+        className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32"
+      >
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal>
             <LandingEyebrow className="text-neutral-500">

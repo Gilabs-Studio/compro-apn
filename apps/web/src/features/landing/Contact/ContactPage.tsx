@@ -13,7 +13,10 @@ export function ContactPage({ locale }: ContactPageProps) {
 
   return (
     <PageTransition>
-      <section className="bg-neutral-950 px-6 pb-20 pt-36 text-white sm:px-8 lg:px-12 lg:pb-28 lg:pt-44">
+      <section
+        data-nav-theme="dark"
+        className="bg-neutral-950 px-6 pb-20 pt-36 text-white sm:px-8 lg:px-12 lg:pb-28 lg:pt-44"
+      >
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <LandingEyebrow className="text-amber-300">
@@ -33,7 +36,10 @@ export function ContactPage({ locale }: ContactPageProps) {
         </div>
       </section>
 
-      <section className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32">
+      <section
+        data-nav-theme="light"
+        className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32"
+      >
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
           <Reveal>
             <div className="bg-white p-8 sm:p-10 lg:p-12">

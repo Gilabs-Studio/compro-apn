@@ -19,11 +19,13 @@ export function PremiumNav({ locale }: PremiumNavProps) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [theme, setTheme] = useState<NavTheme>("dark");
-  const themeMapRef = useRef(new Map<Element, NavTheme>());
+  const themeMapRef = useRef(new Map<Element, number>());
   const copy = getLandingCopy(locale);
   const nextLocale = activeLocale === "id" ? "en" : "id";
 
   useEffect(() => {
+    themeMapRef.current.clear();
+
     const sections = Array.from(
       document.querySelectorAll<HTMLElement>("[data-nav-theme]"),
     );
@@ -39,7 +41,9 @@ export function PremiumNav({ locale }: PremiumNavProps) {
       themeMapRef.current.forEach((ratio, element) => {
         if (ratio >= bestRatio) {
           bestRatio = ratio;
-          nextTheme = (element.getAttribute("data-nav-theme") as NavTheme) ?? "dark";
+          nextTheme =
+            ((element.getAttribute("data-nav-theme") as NavTheme | null) ??
+              "dark");
         }
       });
 
@@ -67,7 +71,7 @@ export function PremiumNav({ locale }: PremiumNavProps) {
     updateTheme();
 
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
@@ -83,7 +87,7 @@ export function PremiumNav({ locale }: PremiumNavProps) {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8",
-        isOpen && "z-[60]",
+        isOpen && "z-60",
       )}
     >
       <motion.nav
@@ -175,7 +179,7 @@ export function PremiumNav({ locale }: PremiumNavProps) {
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           className={cn(
-            "fixed inset-0 z-[60] flex flex-col justify-between px-6 py-6 lg:hidden",
+            "fixed inset-0 z-60 flex flex-col justify-between px-6 py-6 lg:hidden",
             isDarkTheme
               ? "bg-neutral-950/96 text-white"
               : "bg-[#f6f3ee]/98 text-neutral-950",

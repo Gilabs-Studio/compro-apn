@@ -16,7 +16,10 @@ export function ProductPage({ locale }: ProductPageProps) {
 
   return (
     <PageTransition>
-      <section className="grid min-h-[92svh] bg-neutral-950 text-white lg:grid-cols-[0.85fr_1.15fr]">
+      <section
+        data-nav-theme="dark"
+        className="grid min-h-[92svh] bg-neutral-950 text-white lg:grid-cols-[0.85fr_1.15fr]"
+      >
         <div className="flex items-end px-6 pb-16 pt-36 sm:px-8 lg:px-12">
           <div className="max-w-xl">
             <LandingEyebrow className="text-amber-300">
@@ -44,7 +47,10 @@ export function ProductPage({ locale }: ProductPageProps) {
         />
       </section>
 
-      <section className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32">
+      <section
+        data-nav-theme="light"
+        className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32"
+      >
         <div className="mx-auto max-w-7xl">
           <Reveal className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <div>
@@ -74,7 +80,10 @@ export function ProductPage({ locale }: ProductPageProps) {
         </div>
       </section>
 
-      <section className="bg-white px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
+      <section
+        data-nav-theme="light"
+        className="bg-white px-6 py-20 sm:px-8 lg:px-12 lg:py-28"
+      >
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.7fr_1.3fr]">
           <Reveal>
             <LandingEyebrow className="text-neutral-500">

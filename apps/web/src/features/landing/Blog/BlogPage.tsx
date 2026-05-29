@@ -13,7 +13,10 @@ export function BlogPage({ locale }: BlogPageProps) {
 
   return (
     <PageTransition>
-      <section className="px-6 pb-20 pt-36 sm:px-8 lg:px-12 lg:pb-28 lg:pt-44">
+      <section
+        data-nav-theme="light"
+        className="px-6 pb-20 pt-36 sm:px-8 lg:px-12 lg:pb-28 lg:pt-44"
+      >
         <div className="mx-auto max-w-7xl">
           <LandingEyebrow className="text-neutral-500">
             {locale === "id" ? "Blog" : "Blog"}
@@ -26,7 +29,10 @@ export function BlogPage({ locale }: BlogPageProps) {
         </div>
       </section>
 
-      <section className="px-6 pb-20 sm:px-8 lg:px-12 lg:pb-32">
+      <section
+        data-nav-theme="light"
+        className="px-6 pb-20 sm:px-8 lg:px-12 lg:pb-32"
+      >
         <div className="mx-auto grid max-w-7xl gap-px bg-neutral-200 lg:grid-cols-3">
           {copy.blogPosts.map((post, index) => (
             <Reveal key={post.title} delay={index * 0.08}>
