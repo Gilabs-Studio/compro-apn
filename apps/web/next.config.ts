@@ -100,7 +100,7 @@ const csp = [
   allowLocalNetwork
     ? "connect-src 'self' https: wss: ws: http://localhost:* http://127.0.0.1:*"
     : "connect-src 'self' https: wss: ws:",
-  "frame-src 'self' https://www.openstreetmap.org/ https://*.openstreetmap.org/ https://carto.com/",
+  "frame-src 'self' https://www.google.com/ https://maps.google.com/ https://www.openstreetmap.org/ https://*.openstreetmap.org/ https://carto.com/",
   "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",

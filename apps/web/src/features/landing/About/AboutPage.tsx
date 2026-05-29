@@ -23,7 +23,7 @@ export function AboutPage({ locale }: AboutPageProps) {
           priority
           sizes="100vw"
           className="absolute inset-0 h-full"
-          intensity={75}
+          intensity={400}
         />
         <div className="absolute inset-0 bg-linear-to-r from-black/90 via-black/60 to-black/28" />
         <div className="relative z-10 mx-auto flex min-h-svh max-w-7xl items-end py-20 lg:py-32">

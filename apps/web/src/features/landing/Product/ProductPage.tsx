@@ -46,7 +46,7 @@ export function ProductPage({ locale }: ProductPageProps) {
           priority
           sizes="(min-width: 1024px) 60vw, 100vw"
           className="min-h-[56svh] lg:min-h-screen"
-          intensity={80}
+          intensity={400}
           imageClassName="object-cover object-center"
         />
       </section>

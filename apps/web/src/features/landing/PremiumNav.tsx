@@ -194,7 +194,9 @@ export function PremiumNav({ locale }: PremiumNavProps) {
             {nextLocale.toUpperCase()}
           </Link>
           <Link
-            href="/contact"
+            href="https://wa.me/6281291572817"
+            target="_blank"
+            rel="noopener noreferrer"
             className={cn(
               "inline-flex h-10 items-center gap-2 text-sm font-medium transition-colors",
               isDarkTheme
@@ -293,7 +295,9 @@ export function PremiumNav({ locale }: PremiumNavProps) {
               {nextLocale.toUpperCase()}
             </Link>
             <Link
-              href="/contact"
+              href="https://wa.me/6281291572817"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
               className={cn(
                 "inline-flex items-center gap-2 text-sm font-medium transition-colors",

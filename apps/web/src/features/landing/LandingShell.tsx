@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { getLandingCopy } from "./content";
 import { PremiumNav } from "./PremiumNav";
@@ -31,7 +31,7 @@ export function LandingShell({ children, locale }: LandingShellProps) {
               {copy.tagline}
             </h2>
           </div>
-          <div className="grid gap-8 sm:grid-cols-2">
+          <div className="grid gap-8 sm:grid-cols-3">
             <div>
               <p className="text-sm font-semibold text-white/50">
                 {locale === "id" ? "Alamat" : "Address"}
@@ -42,6 +42,32 @@ export function LandingShell({ children, locale }: LandingShellProps) {
                 ))}
               </div>
             </div>
+
+            <div>
+              <p className="text-sm font-semibold text-white/50">
+                {locale === "id" ? "Kontak" : "Contact"}
+              </p>
+              <div className="mt-4 space-y-3 text-sm text-white/72">
+                <a
+                  href="mailto:adigunapresisi@gmail.com"
+                  className="inline-flex items-center gap-2 hover:text-white"
+                >
+                  <Mail className="size-4" />
+                  <span className="min-w-0 break-all pt-1">adigunapresisi@gmail.com</span>
+                </a>
+
+                <a
+                  href="https://wa.me/6281291572817"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-w-0 items-start gap-3 hover:text-white"
+                >
+                  <Phone className="size-4" />
+                  <span>081291572817</span>
+                </a>
+              </div>
+            </div>
+
             <div>
               <p className="text-sm font-semibold text-white/50">
                 {locale === "id" ? "Navigasi" : "Navigation"}

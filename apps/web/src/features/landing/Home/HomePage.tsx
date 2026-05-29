@@ -24,7 +24,7 @@ export function HomePage({ locale }: HomePageProps) {
           src={getLandingImage("hero")}
           alt="Premium CNC manufacturing machine"
           priority
-          intensity={90}
+          intensity={400}
           sizes="100vw"
           className="absolute inset-0 h-full"
           imageClassName="opacity-72"
@@ -272,7 +272,7 @@ export function HomePage({ locale }: HomePageProps) {
       >
         <Reveal>
           <Link
-            href="/contact"
+            href="https://wa.me/6281291572817"
             className="group mx-auto flex max-w-7xl items-center justify-between gap-8 border-y border-neutral-950 py-10"
           >
             <span className="max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">

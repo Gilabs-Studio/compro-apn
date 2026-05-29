@@ -1,4 +1,4 @@
-import { ArrowRight, MapPin } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { PageTransition } from "../PageTransition";
 import { Reveal } from "../Reveal";
 import { LandingEyebrow } from "../LandingEyebrow";
@@ -10,6 +10,10 @@ type ContactPageProps = {
 
 export function ContactPage({ locale }: ContactPageProps) {
   const copy = getLandingCopy(locale);
+  const gmapsEmbedUrl =
+    "https://www.google.com/maps?q=Grand+Cendrawasih+Asri+Jl.+Cendrawasih+Kav.5+Desa%2FKelurahan+Cipayung+Kec.+Ciputat+Kota+Tangerang+Selatan+Banten+15411&output=embed";
+  const gmapsOpenUrl =
+    "https://www.google.com/maps/search/?api=1&query=Grand+Cendrawasih+Asri+Jl.+Cendrawasih+Kav.5+Desa%2FKelurahan+Cipayung+Kec.+Ciputat+Kota+Tangerang+Selatan+Banten+15411";
 
   return (
     <PageTransition>
@@ -41,75 +45,76 @@ export function ContactPage({ locale }: ContactPageProps) {
 
       <section
         data-nav-theme="light"
-        className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32"
+        className="min-h-screen bg-white"
       >
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="grid min-h-screen lg:grid-cols-2">
           <Reveal>
-            <div className="bg-white p-8 sm:p-10 lg:p-12">
-              <div className="grid size-12 place-items-center bg-neutral-950 text-white">
-                <MapPin className="size-5" />
-              </div>
-              <h2 className="mt-8 text-3xl font-semibold tracking-tight">
-                {copy.company}
-              </h2>
-              <div className="mt-7 space-y-3 text-base leading-7 text-neutral-600">
-                {copy.address.map((line) => (
-                  <p key={line}>{line}</p>
-                ))}
+            <div className="flex h-full items-center px-6 py-12 sm:px-8 lg:px-14 lg:py-16">
+              <div className="w-full max-w-xl">
+                <div className="grid size-12 place-items-center bg-neutral-950 text-white">
+                  <MapPin className="size-5" />
+                </div>
+                <h2 className="mt-8 text-3xl font-semibold tracking-tight text-neutral-950 sm:text-4xl">
+                  {copy.company}
+                </h2>
+                <div className="mt-7 space-y-3 text-base leading-7 text-neutral-600">
+                  {copy.address.map((line) => (
+                    <p key={line}>{line}</p>
+                  ))}
+                </div>
+                                <a
+                  href={gmapsOpenUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-10 inline-flex w-fit items-center gap-2 text-sm font-semibold text-neutral-700 hover:text-neutral-950"
+                >
+                  {locale === "id" ? "Buka di Google Maps" : "Open in Google Maps"}
+                </a>
+
+                <div className="mt-10 border-t border-neutral-200 pt-8">
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-neutral-500">
+                    {locale === "id" ? "Kontak" : "Contact"}
+                  </p>
+                  <div className="mt-6 grid gap-4 text-base leading-7 text-neutral-600">
+                    <a
+                      href="mailto:adigunapresisi@gmail.com"
+                      className="inline-flex items-start gap-3 transition-colors hover:text-neutral-950"
+                    >
+                      <span className="grid size-10 shrink-0 place-items-center bg-neutral-950 text-white">
+                        <Mail className="size-5" />
+                      </span>
+                      <span className="min-w-0 break-all pt-1">
+                        adigunapresisi@gmail.com
+                      </span>
+                    </a>
+
+                    <a
+                      href="https://wa.me/6281291572817"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-start gap-3 transition-colors hover:text-neutral-950"
+                    >
+                      <span className="grid size-10 shrink-0 place-items-center bg-neutral-950 text-white">
+                        <Phone className="size-5" />
+                      </span>
+                      <span className="pt-1">081291572817</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </Reveal>
 
           <Reveal>
-            <form className="grid gap-5 bg-white p-8 sm:p-10 lg:p-12">
-              <div className="grid gap-5 sm:grid-cols-2">
-                <label className="grid gap-2 text-sm font-medium text-neutral-600">
-                  {locale === "id" ? "Nama" : "Name"}
-                  <input
-                    className="h-12 border border-neutral-200 bg-transparent px-4 text-base text-neutral-950 outline-none transition-colors focus:border-neutral-950"
-                    placeholder={locale === "id" ? "Nama Anda" : "Your name"}
-                  />
-                </label>
-                <label className="grid gap-2 text-sm font-medium text-neutral-600">
-                  Email
-                  <input
-                    type="email"
-                    className="h-12 border border-neutral-200 bg-transparent px-4 text-base text-neutral-950 outline-none transition-colors focus:border-neutral-950"
-                    placeholder="name@company.com"
-                  />
-                </label>
-              </div>
-              <label className="grid gap-2 text-sm font-medium text-neutral-600">
-                {locale === "id" ? "Kebutuhan mesin" : "Machine needs"}
-                <input
-                  className="h-12 border border-neutral-200 bg-transparent px-4 text-base text-neutral-950 outline-none transition-colors focus:border-neutral-950"
-                  placeholder={
-                    locale === "id"
-                      ? "CNC, grinding, tooling, instalasi"
-                      : "CNC, grinding, tooling, installation"
-                  }
-                />
-              </label>
-              <label className="grid gap-2 text-sm font-medium text-neutral-600">
-                {locale === "id" ? "Pesan" : "Message"}
-                <textarea
-                  rows={6}
-                  className="resize-none border border-neutral-200 bg-transparent px-4 py-3 text-base text-neutral-950 outline-none transition-colors focus:border-neutral-950"
-                  placeholder={
-                    locale === "id"
-                      ? "Tulis spesifikasi material dan target volume produksi Anda"
-                      : "Briefly outline your material details and production volume targets"
-                  }
-                />
-              </label>
-              <button
-                type="button"
-                className="group mt-2 inline-flex h-12 w-fit items-center gap-2 bg-neutral-950 px-6 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
-              >
-                {locale === "id" ? "Kirim inquiry" : "Send inquiry"}
-                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-              </button>
-            </form>
+            <div className="h-[55vh] overflow-hidden lg:h-screen">
+              <iframe
+                src={gmapsEmbedUrl}
+                title={locale === "id" ? "Peta lokasi kantor" : "Office location map"}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="h-full w-full"
+              />
+            </div>
           </Reveal>
         </div>
       </section>

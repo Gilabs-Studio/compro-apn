@@ -109,7 +109,9 @@ export default async function ProductDetailRoute({
             </div>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/contact"
+                href="https://wa.me/6281291572817"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex h-12 items-center justify-center gap-2 bg-white px-6 text-sm font-semibold text-neutral-950 transition-transform duration-300 hover:-translate-y-0.5"
               >
                 {locale === "id" ? "Hubungi kami" : "Contact us"}
@@ -131,7 +133,7 @@ export default async function ProductDetailRoute({
           priority
           sizes="(min-width: 1024px) 60vw, 100vw"
           className="min-h-[56svh] lg:min-h-screen"
-          intensity={75}
+          intensity={400}
           imageClassName="object-contain p-8"
         />
       </section>
