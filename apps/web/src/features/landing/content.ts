@@ -64,7 +64,7 @@ export function getLandingCopy(locale: string) {
     locale: isId ? "id" : "en",
     company: "PT Adiguna Presisi Nusantara",
     shortName: "Adiguna Presisi",
-    tagline: isId ? "Make your dream come true" : "Make your dream come true",
+    tagline: isId ? "Presisi Tanpa Batas" : "Precision Without Limits",
     nav: [
       { label: isId ? "Beranda" : "Home", href: "/" },
       { label: isId ? "Produk" : "Product", href: "/product" },
@@ -75,78 +75,78 @@ export function getLandingCopy(locale: string) {
     hero: {
       title: "Precision Machinery & Manufacturing Solutions",
       description: isId
-        ? "Penyedia mesin CNC, mesin perkakas workshop, tooling machining, instalasi, konsultasi, dan engineering support untuk kebutuhan manufaktur Indonesia."
-        : "Provider of CNC machines, workshop machine tools, machining tooling, installation, consultation, and engineering support for Indonesian manufacturing.",
+        ? "Mesin CNC premium, perkakas presisi, instalasi, dan dukungan teknik ahli untuk industri manufaktur Anda"
+        : "Premium CNC machines, precision tooling, expert installation, and engineering support for your manufacturing needs",
       primaryCta: isId ? "Lihat Produk" : "View Products",
       secondaryCta: isId ? "Konsultasi Mesin" : "Machine Consultation",
     },
     stats: [
       {
         value: "CNC",
-        label: isId ? "Mesin dan perkakas workshop" : "Machines and workshop tools",
+        label: isId ? "Mesin & Perkakas Bengkel" : "Machines & Workshop Tools",
       },
       {
-        value: "360",
-        label: isId ? "Dukungan teknis dari awal sampai akhir" : "Technical support from start to finish",
+        value: "360°",
+        label: isId ? "Dukungan Teknis Total" : "Total Technical Support",
       },
       {
         value: "7+",
-        label: isId ? "Sektor industri yang dilayani" : "Industrial sectors served",
+        label: isId ? "Sektor Industri Utama" : "Key Industrial Sectors",
       },
     ],
     services: [
       {
-        title: isId ? "Konsultasi Pemilihan Mesin" : "Machine Selection Consultation",
+        title: isId ? "Pilihan Mesin" : "Machine Selection",
         description: isId
-          ? "Membantu pelanggan menentukan mesin yang sesuai dengan kapasitas, material, dan target produksi."
-          : "Helping customers choose machines that match capacity, material, and production goals.",
+          ? "Rekomendasi konfigurasi mesin sesuai kapasitas dan material produksi Anda"
+          : "Tailored machine recommendations based on your capacity and material",
       },
       {
-        title: isId ? "Instalasi Mesin" : "Machine Installation",
+        title: isId ? "Instalasi & Uji" : "Installation & Commissioning",
         description: isId
-          ? "Pemasangan dan pengaturan mesin di lokasi pelanggan dengan proses kerja yang rapi."
-          : "Machine setup and commissioning at customer sites with a clean working process.",
+          ? "Pemasangan, kalibrasi, dan pengujian mesin langsung oleh tim ahli"
+          : "Expert installation, precision calibration, and site testing by engineers",
       },
       {
-        title: isId ? "After Sales Support" : "After Sales Support",
+        title: isId ? "Dukungan Purnajual" : "After Sales Support",
         description: isId
-          ? "Dukungan teknis untuk penggunaan mesin dan optimalisasi proses produksi."
-          : "Technical support for machine operation and production process optimization.",
+          ? "Pemeliharaan rutin dan pasokan suku cadang asli untuk menjaga produksi"
+          : "Scheduled maintenance and genuine parts supply to keep production running",
       },
     ],
     advantages: [
       isId
-        ? "Solusi lengkap untuk kebutuhan mesin dan peralatan workshop industri."
-        : "Complete solutions for industrial machines and workshop equipment.",
+        ? "Solusi lengkap untuk mesin dan peralatan workshop"
+        : "Complete industrial machinery and workshop solutions",
       isId
-        ? "Produk berkualitas yang disesuaikan dengan kebutuhan pelanggan."
-        : "Quality products tailored to customer needs.",
+        ? "Produk premium yang dikustomisasi sesuai target"
+        : "Customized premium systems for your targets",
       isId
-        ? "Dukungan teknis dan engineering yang profesional."
-        : "Professional technical and engineering support.",
+        ? "Dukungan insinyur ahli dan responsif"
+        : "Expert engineering and rapid support",
       isId
-        ? "Komitmen terhadap pelayanan dan kepuasan pelanggan."
-        : "Committed to service quality and customer satisfaction.",
+        ? "Layanan andal untuk kepuasan jangka panjang"
+        : "Reliable service for long-term satisfaction",
     ],
     vision: isId
-      ? "Menjadi perusahaan penyedia mesin industri dan solusi manufaktur yang terpercaya, profesional, dan berdaya saing tinggi di Indonesia."
-      : "To become a trusted, professional, and highly competitive provider of industrial machines and manufacturing solutions in Indonesia.",
+      ? "Menjadi penyedia mesin industri presisi terdepan dan terpercaya di Indonesia"
+      : "To be the leading and most trusted precision industrial machinery provider in Indonesia",
     mission: [
       isId
-        ? "Menyediakan mesin industri dan peralatan manufaktur yang berkualitas dan andal."
-        : "Provide quality and reliable industrial machinery and manufacturing equipment.",
+        ? "Menyediakan mesin manufaktur berkualitas tinggi"
+        : "Provide high-quality manufacturing machinery",
       isId
-        ? "Memberikan pelayanan profesional serta dukungan teknis terbaik kepada pelanggan."
-        : "Deliver professional service and best-in-class technical support.",
+        ? "Memberikan pelayanan profesional dan dukungan teknis cepat"
+        : "Deliver professional service and rapid technical support",
       isId
-        ? "Membantu meningkatkan efisiensi dan produktivitas industri melalui solusi teknologi yang tepat."
-        : "Improve industrial efficiency and productivity through the right technology solutions.",
+        ? "Meningkatkan efisiensi produksi lewat solusi cerdas"
+        : "Boost production efficiency through smart solutions",
       isId
-        ? "Membangun kerja sama jangka panjang dengan pelanggan dan mitra bisnis."
-        : "Build long-term cooperation with customers and business partners.",
+        ? "Membangun kemitraan kokoh jangka panjang"
+        : "Build strong, long-term partnerships",
       isId
-        ? "Terus berkembang melalui inovasi dan peningkatan kualitas layanan."
-        : "Grow through innovation and continuous service improvement.",
+        ? "Terus berinovasi meningkatkan mutu layanan"
+        : "Innovate continuously to raise service quality",
     ],
     values: [
       ["A", "Accountability"],
@@ -177,8 +177,8 @@ export function getLandingCopy(locale: string) {
         name: "HF-60200 Precision Grinder",
         category: isId ? "Grinding Machine" : "Grinding Machine",
         description: isId
-          ? "Mesin gerinda presisi untuk kebutuhan workshop industri dengan area kerja panjang dan stabil."
-          : "Precision grinding machine for industrial workshop needs with long and stable working area.",
+          ? "Mesin gerinda presisi untuk pengerjaan permukaan material berukuran panjang"
+          : "Precision surface grinder designed for long workpiece operations",
         image: "precisionGrinder",
         specs: ["Heavy-duty bed", "Long travel", "Stable finishing"],
       },
@@ -187,8 +187,8 @@ export function getLandingCopy(locale: string) {
         name: "DX-870 Machining Center",
         category: isId ? "CNC Machining" : "CNC Machining",
         description: isId
-          ? "Vertical machining center untuk proses produksi komponen yang membutuhkan akurasi berulang."
-          : "Vertical machining center for component production that requires repeatable accuracy.",
+          ? "Vertical machining center untuk komponen dengan akurasi berulang"
+          : "High-speed vertical machining center for high-accuracy components",
         image: "machiningCenter",
         specs: ["VMC enclosure", "Digital control", "Production ready"],
       },
@@ -197,8 +197,8 @@ export function getLandingCopy(locale: string) {
         name: "HF-4080 Surface Grinder",
         category: isId ? "Surface Grinding" : "Surface Grinding",
         description: isId
-          ? "Solusi grinding permukaan untuk hasil akhir presisi pada material logam."
-          : "Surface grinding solution for precise finishing on metal materials.",
+          ? "Solusi gerinda datar otomatis untuk kerataan material yang sempurna"
+          : "Automatic surface grinding solution for perfect material flatness",
         image: "surfaceGrinder",
         specs: ["Fine tolerance", "Workshop fit", "Clean surface"],
       },
@@ -207,8 +207,8 @@ export function getLandingCopy(locale: string) {
         name: "Horizontal Boring Mill",
         category: isId ? "Heavy Machining" : "Heavy Machining",
         description: isId
-          ? "Mesin untuk pekerjaan boring dan milling pada komponen berukuran besar."
-          : "Machine for boring and milling jobs on large-sized components.",
+          ? "Mesin boring dan milling berkapasitas besar untuk suku cadang raksasa"
+          : "Heavy-duty boring and milling machine for extra-large workpieces",
         image: "boringMill",
         specs: ["Large component", "Rigid table", "Industrial scale"],
       },
@@ -217,8 +217,8 @@ export function getLandingCopy(locale: string) {
         name: "CNC Lathe System",
         category: isId ? "Turning Center" : "Turning Center",
         description: isId
-          ? "Sistem turning untuk produksi komponen silindris dengan efisiensi tinggi."
-          : "Turning system for efficient production of cylindrical components.",
+          ? "Sistem mesin bubut CNC otomatis untuk fabrikasi silindris massal"
+          : "High-speed automated CNC lathe for mass cylindrical production",
         image: "lathe",
         specs: ["Turning center", "High repeatability", "Operator friendly"],
       },
@@ -229,8 +229,8 @@ export function getLandingCopy(locale: string) {
           ? "Cara memilih mesin CNC untuk workshop baru"
           : "How to choose a CNC machine for a new workshop",
         excerpt: isId
-          ? "Mulai dari jenis material, volume produksi, area kerja, hingga kebutuhan after sales."
-          : "From material type and production volume to working area and after sales needs.",
+          ? "Panduan memilih mesin CNC berdasarkan material dan target kapasitas"
+          : "Guide to choosing the right CNC machine by material and capacity",
         category: isId ? "Panduan" : "Guide",
       },
       {
@@ -238,8 +238,8 @@ export function getLandingCopy(locale: string) {
           ? "Mengapa dukungan teknis penting setelah pembelian mesin"
           : "Why technical support matters after machine purchase",
         excerpt: isId
-          ? "Mesin yang tepat perlu diikuti instalasi, setting, dan pendampingan penggunaan."
-          : "The right machine should be followed by installation, setup, and operational assistance.",
+          ? "Pentingnya kalibrasi, pengujian, dan pelatihan operator setelah pembelian"
+          : "Why calibration, testing, and operator training matter post-purchase",
         category: isId ? "Engineering" : "Engineering",
       },
       {
@@ -247,8 +247,8 @@ export function getLandingCopy(locale: string) {
           ? "Meningkatkan produktivitas fabrikasi logam"
           : "Improving metal fabrication productivity",
         excerpt: isId
-          ? "Efisiensi lahir dari kombinasi tooling, operator, mesin, dan proses yang tepat."
-          : "Efficiency comes from the right combination of tooling, operators, machines, and process.",
+          ? "Langkah praktis meningkatkan hasil produksi lewat alur kerja efisien"
+          : "Practical steps to boost fabrication output through efficient workflows",
         category: isId ? "Industri" : "Industry",
       },
     ],

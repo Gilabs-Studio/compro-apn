@@ -4,8 +4,8 @@
   },
   "notFound": {
     "label": "Page not found",
-    "title": "We couldn\"t find that page",
-    "description": "The page may have been moved, deleted, or the link may be incorrect.",
+    "title": "We couldn't find that page",
+    "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable",
     "backHome": "Go back home"
   }
 }

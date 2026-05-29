@@ -17,9 +17,12 @@ export function LandingShell({ children, locale }: LandingShellProps) {
       {children}
       <footer
         data-nav-theme="dark"
-        className="bg-neutral-950 px-6 py-16 text-white sm:px-8 lg:px-12"
+        className="relative bg-neutral-950 px-6 py-16 text-white sm:px-8 lg:px-12 overflow-hidden"
       >
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        <div
+          className="absolute inset-0 bg-[url('/landing/geometric_dark_bg.webp')] bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"
+        />
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
               {copy.company}

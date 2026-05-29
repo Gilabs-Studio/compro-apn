@@ -33,13 +33,13 @@ export function AboutPage({ locale }: AboutPageProps) {
             </LandingEyebrow>
             <h1 className="mt-6 text-5xl font-semibold leading-none tracking-tight sm:text-7xl">
               {locale === "id"
-                ? "Perusahaan mesin industri dengan orientasi presisi."
-                : "An industrial machinery company oriented around precision."}
+                ? "Orientasi Presisi"
+                : "Precision Oriented"}
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-8 text-white/66">
               {locale === "id"
-                ? "PT Adiguna Presisi Nusantara menyediakan mesin industri, peralatan manufaktur, tooling machining, dan solusi pendukung produksi untuk berbagai sektor industri."
-                : "PT Adiguna Presisi Nusantara provides industrial machines, manufacturing equipment, machining tooling, and production support solutions for various industrial sectors."}
+                ? "PT Adiguna Presisi Nusantara menyediakan ekosistem permesinan industri dan instrumen manufaktur presisi nasional"
+                : "PT Adiguna Presisi Nusantara provides industrial machinery and precision manufacturing systems"}
             </p>
           </div>
         </div>
@@ -65,8 +65,8 @@ export function AboutPage({ locale }: AboutPageProps) {
             <div className="mt-8 grid gap-5">
               {copy.mission.map((mission, index) => (
                 <div
-                  key={mission}
-                  className="grid gap-4 border-t border-neutral-200 pt-5 sm:grid-cols-[72px_1fr]"
+                   key={mission}
+                   className="grid gap-4 border-t border-neutral-200 pt-5 sm:grid-cols-[72px_1fr]"
                 >
                   <span className="text-sm font-semibold text-amber-500">
                     0{index + 1}
@@ -81,9 +81,12 @@ export function AboutPage({ locale }: AboutPageProps) {
 
       <section
         data-nav-theme="dark"
-        className="bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-32"
+        className="relative bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-32 overflow-hidden"
       >
-        <div className="mx-auto max-w-7xl">
+        <div
+          className="absolute inset-0 bg-[url('/landing/geometric_dark_bg.webp')] bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"
+        />
+        <div className="relative z-10 mx-auto max-w-7xl">
           <Reveal className="max-w-3xl">
             <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Nilai perusahaan" : "Company values"}
@@ -95,7 +98,7 @@ export function AboutPage({ locale }: AboutPageProps) {
           <div className="mt-14 grid gap-px bg-white/12 sm:grid-cols-2 lg:grid-cols-4">
             {copy.values.map(([letter, value], index) => (
               <Reveal key={`${letter}-${value}`} delay={index * 0.04}>
-                <div className="min-h-52 bg-neutral-950 p-7 transition-colors hover:bg-white hover:text-neutral-950">
+                <div className="min-h-52 bg-neutral-950/80 backdrop-blur-xs p-7 transition-colors hover:bg-white hover:text-neutral-950">
                   <span className="text-6xl font-semibold tracking-tight text-amber-300">
                     {letter}
                   </span>
@@ -118,8 +121,8 @@ export function AboutPage({ locale }: AboutPageProps) {
             </LandingEyebrow>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
               {locale === "id"
-                ? "Dibangun untuk banyak kebutuhan produksi."
-                : "Built for many production needs."}
+                ? "Untuk Semua Produksi"
+                : "For All Production"}
             </h2>
           </Reveal>
           <div className="grid gap-3 sm:grid-cols-2">

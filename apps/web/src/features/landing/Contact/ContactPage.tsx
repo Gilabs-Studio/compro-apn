@@ -15,23 +15,26 @@ export function ContactPage({ locale }: ContactPageProps) {
     <PageTransition>
       <section
         data-nav-theme="dark"
-        className="bg-neutral-950 px-6 pb-20 pt-36 text-white sm:px-8 lg:px-12 lg:pb-28 lg:pt-44"
+        className="relative bg-neutral-950 px-6 pb-20 pt-36 text-white sm:px-8 lg:px-12 lg:pb-28 lg:pt-44 overflow-hidden"
       >
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <div
+          className="absolute inset-0 bg-[url('/landing/geometric_dark_bg.webp')] bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"
+        />
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Kontak" : "Contact"}
             </LandingEyebrow>
             <h1 className="mt-6 text-5xl font-semibold leading-none tracking-tight sm:text-7xl">
               {locale === "id"
-                ? "Diskusikan kebutuhan mesin Anda."
-                : "Discuss your machine needs."}
+                ? "Konsultasi Mesin"
+                : "Machine Consultation"}
             </h1>
           </div>
           <p className="max-w-2xl text-base leading-8 text-white/62">
             {locale === "id"
-              ? "Sampaikan kebutuhan produksi, jenis material, kapasitas, dan target proses. Tim kami akan membantu mengarahkan pilihan mesin dan solusi pendukungnya."
-              : "Share your production needs, material type, capacity, and process targets. Our team will help guide machine selection and supporting solutions."}
+              ? "Kirim kebutuhan spesifikasi material dan target kapasitas Anda untuk mendapatkan rekomendasi sistem terbaik"
+              : "Submit your material specifications and volume targets to receive tailored recommendations"}
           </p>
         </div>
       </section>
@@ -94,8 +97,8 @@ export function ContactPage({ locale }: ContactPageProps) {
                   className="resize-none border border-neutral-200 bg-transparent px-4 py-3 text-base text-neutral-950 outline-none transition-colors focus:border-neutral-950"
                   placeholder={
                     locale === "id"
-                      ? "Ceritakan material, kapasitas, dan target produksi."
-                      : "Tell us about material, capacity, and production target."
+                      ? "Tulis spesifikasi material dan target volume produksi Anda"
+                      : "Briefly outline your material details and production volume targets"
                   }
                 />
               </label>

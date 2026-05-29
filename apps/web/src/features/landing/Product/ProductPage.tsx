@@ -20,20 +20,23 @@ export function ProductPage({ locale }: ProductPageProps) {
         data-nav-theme="dark"
         className="grid min-h-screen bg-neutral-950 text-white lg:grid-cols-[0.9fr_1.1fr]"
       >
-        <div className="flex items-end px-6 pb-16 pt-36 sm:px-8 lg:px-12 lg:min-h-screen">
-          <div className="max-w-xl">
+        <div className="flex items-end px-6 pb-16 pt-36 sm:px-8 lg:px-12 lg:min-h-screen relative overflow-hidden">
+          <div
+            className="absolute inset-0 bg-[url('/landing/geometric_minimal_curves.webp')] bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"
+          />
+          <div className="relative z-10 max-w-xl">
             <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Produk" : "Product"}
             </LandingEyebrow>
             <h1 className="mt-6 text-5xl font-semibold leading-none tracking-tight sm:text-7xl">
               {locale === "id"
-                ? "Mesin untuk workshop yang bekerja presisi."
-                : "Machines for workshops that work precisely."}
+                ? "Mesin Workshop Presisi"
+                : "Precision Workshop Machines"}
             </h1>
             <p className="mt-7 text-base leading-8 text-white/62">
               {locale === "id"
-                ? "Pilihan mesin CNC, grinding, machining center, dan peralatan manufaktur yang dapat disesuaikan dengan target produksi pelanggan."
-                : "CNC, grinding, machining center, and manufacturing equipment options that can be tailored to customer production goals."}
+                ? "Pilihan mesin CNC, gerinda datar, dan machining center yang dikonfigurasi untuk target produksi Anda"
+                : "CNC systems, surface grinders, and machining centers configured for your production goals"}
             </p>
           </div>
         </div>
@@ -60,8 +63,8 @@ export function ProductPage({ locale }: ProductPageProps) {
               </LandingEyebrow>
               <h2 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
                 {locale === "id"
-                  ? "Foto produk dibuat besar, bersih, dan fokus ke satu objek."
-                  : "Product photos are large, clean, and focused on one object."}
+                  ? "Perspektif Detail"
+                  : "Detailed Perspective"}
               </h2>
             </div>
             <Link
@@ -92,8 +95,8 @@ export function ProductPage({ locale }: ProductPageProps) {
             </LandingEyebrow>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
               {locale === "id"
-                ? "Solusi lengkap, bukan pilihan acak."
-                : "Complete solutions, not random choices."}
+                ? "Ekosistem Terintegrasi"
+                : "Integrated Ecosystems"}
             </h2>
           </Reveal>
           <div className="grid gap-4 sm:grid-cols-2">

@@ -66,17 +66,24 @@ export function HomePage({ locale }: HomePageProps) {
 
       <section
         data-nav-theme="dark"
-        className="bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-28"
+        className="relative bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-28 overflow-hidden"
       >
-        <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+        <div
+          className="absolute inset-0 bg-[url('/landing/geometric_minimal_circles.webp')] bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none"
+          style={{
+            WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1) 60%)',
+            maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1) 60%)',
+          }}
+        />
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <LandingEyebrow className="text-amber-300">
               {locale === "id" ? "Adiguna dalam angka" : "Adiguna in numbers"}
             </LandingEyebrow>
             <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
               {locale === "id"
-                ? "Teknologi manufaktur untuk pekerjaan presisi."
-                : "Manufacturing technology for precision work."}
+                ? "Teknologi untuk Presisi"
+                : "Technology for Precision"}
             </h2>
           </Reveal>
           <div className="grid gap-6 sm:grid-cols-3">
@@ -104,18 +111,18 @@ export function HomePage({ locale }: HomePageProps) {
           <Reveal className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div>
               <LandingEyebrow className="text-neutral-500">
-                {locale === "id" ? "Produk unggulan" : "Featured products"}
+                {locale === "id" ? "Produk" : "Products"}
               </LandingEyebrow>
               <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-6xl">
                 {locale === "id"
-                  ? "Mesin industri dengan karakter visual yang kuat."
-                  : "Industrial machines with a strong visual presence."}
+                  ? "Karakter Kuat"
+                  : "Strong Visual Presence"}
               </h2>
             </div>
             <p className="max-w-xl text-base leading-8 text-neutral-600 lg:ml-auto">
               {locale === "id"
-                ? "Layout dibuat banyak whitespace agar fotografi produk menjadi fokus utama, seperti katalog premium untuk mesin manufaktur."
-                : "The layout uses generous whitespace so product photography becomes the main focus, like a premium manufacturing catalog."}
+                ? "Desain katalog bersih dengan fokus penuh pada detail teknis mesin"
+                : "Clean catalog design with absolute focus on technical machine details"}
             </p>
           </Reveal>
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
@@ -144,8 +151,8 @@ export function HomePage({ locale }: HomePageProps) {
               </LandingEyebrow>
               <h2 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl">
                 {locale === "id"
-                  ? "Bukan hanya menjual mesin, kami membantu memilih solusi."
-                  : "More than selling machines, we help select the solution."}
+                  ? "Solusi, Bukan Sekadar Produk"
+                  : "Solutions, Not Just Products"}
               </h2>
             </Reveal>
             <div className="mt-10 grid gap-6">
@@ -180,8 +187,8 @@ export function HomePage({ locale }: HomePageProps) {
           >
             <span className="max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
               {locale === "id"
-                ? "Mulai konsultasi kebutuhan mesin Anda."
-                : "Start consulting your machine needs."}
+                ? "Hubungi Kami Sekarang"
+                : "Contact Us Today"}
             </span>
             <span className="grid size-14 shrink-0 place-items-center bg-neutral-950 text-white transition-transform duration-300 group-hover:translate-x-2">
               <MoveRight className="size-6" />

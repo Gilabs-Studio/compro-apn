@@ -23,8 +23,8 @@ export function BlogPage({ locale }: BlogPageProps) {
           </LandingEyebrow>
           <h1 className="mt-6 max-w-5xl text-5xl font-semibold leading-none tracking-tight sm:text-7xl">
             {locale === "id"
-              ? "Catatan tentang mesin, proses, dan produktivitas."
-              : "Notes on machines, process, and productivity."}
+              ? "Catatan & Perspektif"
+              : "Notes & Perspectives"}
           </h1>
         </div>
       </section>

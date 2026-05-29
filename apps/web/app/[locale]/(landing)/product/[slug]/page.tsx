@@ -148,14 +148,14 @@ export default async function ProductDetailRoute({
               </LandingEyebrow>
               <h2 className="mt-5 max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">
                 {locale === "id"
-                  ? "Halaman ini punya nama produk yang jelas untuk SEO dan internal linking."
-                  : "This page has a clear product name for SEO and internal linking."}
+                  ? "Navigasi Produk"
+                  : "Product Navigation"}
               </h2>
             </div>
             <p className="max-w-xl text-base leading-8 text-neutral-600 lg:ml-auto">
               {locale === "id"
-                ? "Mesin lain di katalog juga bisa dibuka sebagai halaman detail sendiri supaya mudah ditemukan di Google."
-                : "The other machines in the catalog can also open as individual detail pages so they are easier to find on Google."}
+                ? "Setiap mesin memiliki detail informasi lengkap untuk membantu Anda memahami fitur teknis secara rinci"
+                : "Each machine includes comprehensive specifications to help you understand detailed technical features"}
             </p>
           </Reveal>
           <div className="mt-14 grid gap-6 lg:grid-cols-2">
