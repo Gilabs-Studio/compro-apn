@@ -1,4 +1,5 @@
-import { ArrowRight, Check, MoveRight, Sliders, Wrench, ShieldCheck, Cpu } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, MoveRight, Sliders, Wrench, ShieldCheck, Cpu } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { PageTransition } from "../PageTransition";
 import { ParallaxImage } from "../ParallaxImage";
@@ -218,10 +219,13 @@ export function HomePage({ locale }: HomePageProps) {
               <div className="absolute bottom-6 left-1/2 h-6 w-4/5 -translate-x-1/2 rounded-full bg-neutral-950/10 blur-md pointer-events-none" />
 
               <Reveal delay={0.3} className="relative z-10 flex items-center justify-center">
-                <img
+                <Image
                   src="/landing/HF-4080-nobg.png"
                   alt="Adiguna HF-4080 Surface Grinder"
-                  className="h-auto max-h-[360px] md:max-h-[440px] w-auto object-contain transition-transform duration-700 ease-out hover:scale-105"
+                  width={800}
+                  height={450}
+                  priority
+                  className="h-auto w-full max-w-[520px] object-contain transition-transform duration-700 ease-out hover:scale-105 md:max-w-[580px]"
                 />
               </Reveal>
             </div>
