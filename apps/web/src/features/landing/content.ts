@@ -96,22 +96,28 @@ export function getLandingCopy(locale: string) {
     ],
     services: [
       {
-        title: isId ? "Pilihan Mesin" : "Machine Selection",
+        title: isId ? "Konsultasi & Pemilihan" : "Consultation & Selection",
         description: isId
-          ? "Rekomendasi konfigurasi mesin sesuai kapasitas dan material produksi Anda"
-          : "Tailored machine recommendations based on your capacity and material",
+          ? "Rekomendasi konfigurasi mesin perkakas dan CNC yang disesuaikan secara presisi dengan kebutuhan kapasitas serta spesifikasi material produksi Anda."
+          : "Tailored machine tool and CNC configuration recommendations, precisely optimized for your capacity and material specifications.",
       },
       {
-        title: isId ? "Instalasi & Uji" : "Installation & Commissioning",
+        title: isId ? "Instalasi & Kalibrasi" : "Installation & Calibration",
         description: isId
-          ? "Pemasangan, kalibrasi, dan pengujian mesin langsung oleh tim ahli"
-          : "Expert installation, precision calibration, and site testing by engineers",
+          ? "Pemasangan presisi, kalibrasi tingkat tinggi, serta pengujian performa mesin secara langsung di lokasi oleh tim engineer berpengalaman."
+          : "Precision installation, high-grade calibration, and live performance testing conducted on-site by experienced engineers.",
       },
       {
-        title: isId ? "Dukungan Purnajual" : "After Sales Support",
+        title: isId ? "Dukungan & Suku Cadang" : "After-Sales & Spare Parts",
         description: isId
-          ? "Pemeliharaan rutin dan pasokan suku cadang asli untuk menjaga produksi"
-          : "Scheduled maintenance and genuine parts supply to keep production running",
+          ? "Pemeliharaan preventif secara berkala, penyelesaian kendala teknis cepat, dan jaminan ketersediaan suku cadang asli untuk kelancaran operasional."
+          : "Scheduled preventive maintenance, rapid technical troubleshooting, and guaranteed genuine parts supply to keep production running.",
+      },
+      {
+        title: isId ? "Optimasi & Pelatihan" : "Optimization & Training",
+        description: isId
+          ? "Pelatihan operator dan konsultasi proses manufaktur untuk memaksimalkan efisiensi produksi, mempercepat cycle time, dan meningkatkan akurasi."
+          : "Operator training and manufacturing process consulting to maximize efficiency, accelerate cycle times, and improve precision.",
       },
     ],
     advantages: [
