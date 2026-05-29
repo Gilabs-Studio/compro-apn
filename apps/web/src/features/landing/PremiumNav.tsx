@@ -125,7 +125,7 @@ export function PremiumNav({ locale }: PremiumNavProps) {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 pt-4",
+        "fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8",
         isOpen && "z-60",
       )}
     >
@@ -137,13 +137,13 @@ export function PremiumNav({ locale }: PremiumNavProps) {
         }}
         transition={{ duration: 0.45, ease: "easeOut" }}
         className={cn(
-          "mx-auto flex h-14 max-w-7xl items-center justify-between px-6 sm:px-8 lg:px-12 transition-[background-color,box-shadow,backdrop-filter,padding] duration-300 sm:h-16",
+          "mx-auto flex h-14 max-w-7xl items-center justify-between px-0 transition-[background-color,box-shadow,backdrop-filter,padding] duration-300 sm:h-16",
           isDarkTheme ? "text-white" : "text-neutral-950",
           showSurface
             ? isDarkTheme
-              ? "rounded-full border border-white/10 bg-neutral-950/72 shadow-lg shadow-black/10 backdrop-blur-xl"
-              : "rounded-full border border-neutral-950/8 bg-[#f6f3ee]/78 shadow-lg shadow-black/5 backdrop-blur-xl"
-            : "rounded-none border-transparent bg-transparent shadow-none backdrop-blur-0",
+              ? "rounded-full border border-white/10 bg-neutral-950/72 px-4 shadow-lg shadow-black/10 backdrop-blur-xl sm:px-5"
+              : "rounded-full border border-neutral-950/8 bg-[#f6f3ee]/78 px-4 shadow-lg shadow-black/5 backdrop-blur-xl sm:px-5"
+            : "rounded-none border-transparent bg-transparent px-0 shadow-none backdrop-blur-0",
           isHidden && !isOpen ? "pointer-events-none" : "pointer-events-auto",
         )}
       >

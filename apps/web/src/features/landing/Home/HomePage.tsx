@@ -18,7 +18,7 @@ export function HomePage({ locale }: HomePageProps) {
     <PageTransition>
       <section
         data-nav-theme="dark"
-        className="relative min-h-[92svh] overflow-hidden bg-neutral-950 text-white"
+        className="relative min-h-[92svh] overflow-hidden bg-neutral-950 px-6 text-white sm:px-8 lg:px-12"
       >
         <ParallaxImage
           src={getLandingImage("hero")}
