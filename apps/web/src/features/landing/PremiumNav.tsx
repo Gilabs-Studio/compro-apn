@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArrowUpRight, Globe2, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
@@ -26,16 +26,10 @@ export function PremiumNav({ locale }: PremiumNavProps) {
   const copy = getLandingCopy(locale);
   const nextLocale = activeLocale === "id" ? "en" : "id";
 
-  useEffect(() => {
-    themeMapRef.current.clear();
-
-    const sections = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-nav-theme]"),
-    );
-
-    if (sections.length === 0) {
-      return;
-    }
+  useLayoutEffect(() => {
+    let observer: IntersectionObserver | null = null;
+    let retryFrame = 0;
+    let isCancelled = false;
 
     const updateTheme = () => {
       let nextTheme: NavTheme = "dark";
@@ -53,31 +47,97 @@ export function PremiumNav({ locale }: PremiumNavProps) {
       setTheme(nextTheme);
     };
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          themeMapRef.current.set(
-            entry.target,
-            entry.isIntersecting ? entry.intersectionRatio : 0,
-          );
-        });
+    const connectObserver = () => {
+      if (isCancelled) {
+        return;
+      }
 
-        updateTheme();
-      },
-      {
-        rootMargin: "-20% 0px -50% 0px",
-        threshold: [0, 0.25, 0.5, 0.75, 1],
-      },
-    );
+      themeMapRef.current.clear();
 
-    sections.forEach((section) => observer.observe(section));
-    updateTheme();
+      const sections = Array.from(
+        document.querySelectorAll<HTMLElement>("[data-nav-theme]"),
+      );
 
-    return () => observer.disconnect();
+      if (sections.length === 0) {
+        retryFrame = window.requestAnimationFrame(connectObserver);
+        return;
+      }
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            themeMapRef.current.set(
+              entry.target,
+              entry.isIntersecting ? entry.intersectionRatio : 0,
+            );
+          });
+
+          updateTheme();
+        },
+        {
+          rootMargin: "-20% 0px -50% 0px",
+          threshold: [0, 0.25, 0.5, 0.75, 1],
+        },
+      );
+
+      sections.forEach((section) => observer?.observe(section));
+      updateTheme();
+    };
+
+    connectObserver();
+
+    return () => {
+      isCancelled = true;
+
+      if (retryFrame) {
+        window.cancelAnimationFrame(retryFrame);
+      }
+
+      observer?.disconnect();
+    };
   }, [pathname]);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
+      if (ticking) {
+        return;
+      }
+
+      ticking = true;
+
+      window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const isNearTop = currentScrollY <= 12;
+        const previousScrollY = lastScrollYRef.current;
+        const scrollingDown = currentScrollY > previousScrollY + 4;
+        const scrollingUp = currentScrollY < previousScrollY - 4;
+
+        lastScrollYRef.current = currentScrollY;
+        setIsAtTop((prev) => (prev === isNearTop ? prev : isNearTop));
+
+        if (isNearTop) {
+          setIsHidden((prev) => (prev ? false : prev));
+          ticking = false;
+          return;
+        }
+
+        if (scrollingDown) {
+          setIsHidden((prev) => (prev ? prev : true));
+          ticking = false;
+          return;
+        }
+
+        if (scrollingUp) {
+          setIsHidden((prev) => (prev ? false : prev));
+        }
+
+        ticking = false;
+      });
+    };
+
+    const resetNavState = () => {
       const currentScrollY = window.scrollY;
       const isNearTop = currentScrollY <= 12;
       const previousScrollY = lastScrollYRef.current;
@@ -103,7 +163,7 @@ export function PremiumNav({ locale }: PremiumNavProps) {
     };
 
     lastScrollYRef.current = window.scrollY;
-    handleScroll();
+    resetNavState();
     window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
