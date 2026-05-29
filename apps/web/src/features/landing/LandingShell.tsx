@@ -15,7 +15,10 @@ export function LandingShell({ children, locale }: LandingShellProps) {
     <div className="min-h-screen bg-[#f6f3ee] text-neutral-950">
       <PremiumNav locale={locale} />
       {children}
-      <footer className="bg-neutral-950 px-6 py-16 text-white sm:px-8 lg:px-12">
+      <footer
+        data-nav-theme="dark"
+        className="bg-neutral-950 px-6 py-16 text-white sm:px-8 lg:px-12"
+      >
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">

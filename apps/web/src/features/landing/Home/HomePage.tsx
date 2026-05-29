@@ -16,7 +16,10 @@ export function HomePage({ locale }: HomePageProps) {
 
   return (
     <PageTransition>
-      <section className="relative min-h-[92svh] overflow-hidden bg-neutral-950 text-white">
+      <section
+        data-nav-theme="dark"
+        className="relative min-h-[92svh] overflow-hidden bg-neutral-950 text-white"
+      >
         <ParallaxImage
           src={getLandingImage("hero")}
           alt="Premium CNC manufacturing machine"
@@ -61,7 +64,10 @@ export function HomePage({ locale }: HomePageProps) {
         </div>
       </section>
 
-      <section className="bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-28">
+      <section
+        data-nav-theme="dark"
+        className="bg-neutral-950 px-6 py-20 text-white sm:px-8 lg:px-12 lg:py-28"
+      >
         <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.9fr_1.1fr]">
           <Reveal>
             <LandingEyebrow className="text-amber-300">
@@ -90,7 +96,10 @@ export function HomePage({ locale }: HomePageProps) {
         </div>
       </section>
 
-      <section className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32">
+      <section
+        data-nav-theme="light"
+        className="px-6 py-20 sm:px-8 lg:px-12 lg:py-32"
+      >
         <div className="mx-auto max-w-7xl">
           <Reveal className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div>
@@ -117,7 +126,10 @@ export function HomePage({ locale }: HomePageProps) {
         </div>
       </section>
 
-      <section className="px-6 pb-20 sm:px-8 lg:px-12 lg:pb-32">
+      <section
+        data-nav-theme="light"
+        className="px-6 pb-20 sm:px-8 lg:px-12 lg:pb-32"
+      >
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_1fr]">
           <ParallaxImage
             src={getLandingImage("aboutHero")}
@@ -157,7 +169,10 @@ export function HomePage({ locale }: HomePageProps) {
         </div>
       </section>
 
-      <section className="px-6 pb-20 sm:px-8 lg:px-12 lg:pb-32">
+      <section
+        data-nav-theme="light"
+        className="px-6 pb-20 sm:px-8 lg:px-12 lg:pb-32"
+      >
         <Reveal>
           <Link
             href="/contact"
