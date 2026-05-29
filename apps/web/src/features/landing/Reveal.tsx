@@ -9,7 +9,7 @@ type RevealProps = {
   delay?: number;
 };
 
-export function Reveal({ children, className, delay = 0 }: RevealProps) {
+export function Reveal({ children, className, delay = 0 }: Readonly<RevealProps>) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -18,6 +18,18 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
 
     if (!element || isVisible) {
       return;
+    }
+
+    // Fallback: If the element is vertically within the initial viewport,
+    // force set isVisible to true after the page slide transition (approx. 1000ms)
+    // in case the browser's IntersectionObserver misses the intersection during CSS translation.
+    const rect = element.getBoundingClientRect();
+    let fallbackId: NodeJS.Timeout | null = null;
+
+    if (rect.top < (window.innerHeight || 800)) {
+      fallbackId = setTimeout(() => {
+        setIsVisible(true);
+      }, 1000);
     }
 
     const observer = new IntersectionObserver(
@@ -30,6 +42,9 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
 
         setIsVisible(true);
         observer.disconnect();
+        if (fallbackId) {
+          clearTimeout(fallbackId);
+        }
       },
       {
         rootMargin: "0px 0px -12% 0px",
@@ -41,6 +56,9 @@ export function Reveal({ children, className, delay = 0 }: RevealProps) {
 
     return () => {
       observer.disconnect();
+      if (fallbackId) {
+        clearTimeout(fallbackId);
+      }
     };
   }, [isVisible]);
 
