@@ -22,11 +22,11 @@ const images: Record<LandingImageKey, string> = {
   hero: "/landing/hero.webp",
   productHero: "/landing/product-hero-machine.svg",
   aboutHero: "/landing/about-machine.svg",
-  precisionGrinder: "/landing/precision-grinder.svg",
-  machiningCenter: "/landing/machining-center.svg",
-  surfaceGrinder: "/landing/surface-grinder.svg",
-  boringMill: "/landing/boring-mill.svg",
-  lathe: "/landing/cnc-lathe.svg",
+  precisionGrinder: "/landing/HF-60200.webp",
+  machiningCenter: "/landing/DX-870.webp",
+  surfaceGrinder: "/landing/HF-4080.webp",
+  lathe: "/landing/GY-1390.webp",
+  boringMill: "/landing/Gemini_Generated_Image_8gvhv18gvhv18gvh.webp",
 };
 
 const imagePrompts: Record<LandingImageKey, string> = {
