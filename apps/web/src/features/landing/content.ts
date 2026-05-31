@@ -1,3 +1,5 @@
+import { formatWhatsAppLink } from "@/lib/utils";
+
 export type LandingLocale = "id" | "en";
 
 export type LandingProductSlug =
@@ -26,6 +28,33 @@ export type ProductItem = {
   specs: string[];
 };
 
+const landingWhatsAppPhone = "081291572817";
+
+const inquiryFields = {
+  id: [
+    "Nama lengkap",
+    "Perusahaan",
+    "Nomor WhatsApp",
+    "Produk yang diminati",
+    "Kebutuhan / aplikasi",
+    "Material kerja",
+    "Ukuran kerja / kapasitas",
+    "Lokasi proyek",
+    "Catatan tambahan",
+  ],
+  en: [
+    "Full name",
+    "Company",
+    "WhatsApp number",
+    "Product of interest",
+    "Application / need",
+    "Work material",
+    "Work size / capacity",
+    "Project location",
+    "Additional notes",
+  ],
+} as const;
+
 const productSlugs: LandingProductSlug[] = [
   "hf-60200",
   "dx-870",
@@ -47,6 +76,55 @@ const images: Record<LandingImageKey, string> = {
 
 export function getLandingImage(key: LandingImageKey) {
   return images[key];
+}
+
+export function getLandingWhatsAppMessage(locale: string, product?: ProductItem) {
+  const isId = locale === "id";
+  const fields = isId ? inquiryFields.id : inquiryFields.en;
+  const lines = [
+    isId
+      ? "Halo PT Adiguna Presisi Nusantara,"
+      : "Hello PT Adiguna Presisi Nusantara,",
+    "",
+    product
+      ? isId
+        ? "Saya tertarik dengan produk berikut:"
+        : "I am interested in the following product:"
+      : isId
+        ? "Saya ingin konsultasi kebutuhan mesin:"
+        : "I would like to consult on a machine requirement:",
+  ];
+
+  if (product) {
+    lines.push(
+      `- ${isId ? "Produk" : "Product"}: ${product.name}`,
+      `- ${isId ? "Kategori" : "Category"}: ${product.category}`,
+      `- ${isId ? "Spesifikasi" : "Specification"}: ${product.specs.join(", ")}`,
+      "",
+    );
+  }
+
+  lines.push(isId ? "Form kebutuhan:" : "Inquiry form:");
+
+  fields.forEach((field) => {
+    lines.push(`- ${field}:`);
+  });
+
+  lines.push(
+    "",
+    isId
+      ? "Mohon bantuannya untuk rekomendasi mesin, konfigurasi, dan estimasi kebutuhan."
+      : "Please help me with the machine recommendation, configuration, and requirement estimate.",
+  );
+
+  return lines.join("\n");
+}
+
+export function getLandingWhatsAppLink(locale: string, product?: ProductItem) {
+  return formatWhatsAppLink(
+    landingWhatsAppPhone,
+    getLandingWhatsAppMessage(locale, product),
+  );
 }
 
 export function getLandingProductSlugs() {

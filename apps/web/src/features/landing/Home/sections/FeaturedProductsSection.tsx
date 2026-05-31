@@ -1,10 +1,11 @@
 import { Reveal } from "../../Reveal";
 import { LandingEyebrow } from "../../LandingEyebrow";
+import { getLandingCopy, type ProductItem } from "../../content";
 import { ProductCard } from "../../Product/ProductCard";
 
 type FeaturedProductsSectionProps = {
   locale: string;
-  copy: any;
+  copy: ReturnType<typeof getLandingCopy>;
 };
 
 export default function FeaturedProductsSection({ locale, copy }: Readonly<FeaturedProductsSectionProps>) {
@@ -32,8 +33,8 @@ export default function FeaturedProductsSection({ locale, copy }: Readonly<Featu
           </p>
         </Reveal>
         <div className="mt-14 grid gap-6 lg:grid-cols-3 items-stretch">
-          {copy.products.slice(0, 3).map((product: any, index: number) => (
-            <ProductCard key={product.name} product={product} index={index} />
+          {copy.products.slice(0, 3).map((product: ProductItem, index: number) => (
+            <ProductCard key={product.name} product={product} index={index} locale={locale} />
           ))}
         </div>
       </div>

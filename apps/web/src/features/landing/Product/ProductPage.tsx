@@ -5,7 +5,7 @@ import { PageTransition } from "../PageTransition";
 import { ParallaxImage } from "../ParallaxImage";
 import { Reveal } from "../Reveal";
 import { LandingEyebrow } from "../LandingEyebrow";
-import { getLandingCopy, getLandingImage } from "../content";
+import { getLandingCopy, getLandingImage, getLandingWhatsAppLink } from "../content";
 import { ProductCard } from "./ProductCard";
 
 type ProductPageProps = {
@@ -14,6 +14,7 @@ type ProductPageProps = {
 
 export function ProductPage({ locale }: Readonly<ProductPageProps>) {
   const copy = getLandingCopy(locale);
+  const inquiryLink = getLandingWhatsAppLink(locale);
 
   return (
     <PageTransition>
@@ -76,17 +77,19 @@ export function ProductPage({ locale }: Readonly<ProductPageProps>) {
               </h2>
             </div>
             <Link
-              href="/contact"
+              href={inquiryLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex h-12 w-fit items-center gap-2 bg-neutral-950 px-6 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
             >
-              {locale === "id" ? "Minta rekomendasi" : "Ask recommendation"}
+              {locale === "id" ? "Minta penawaran" : "Request a quote"}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </Reveal>
 
           <div className="mt-14 grid gap-6 lg:grid-cols-2">
             {copy.products.map((product, index) => (
-              <ProductCard key={product.name} product={product} index={index} />
+              <ProductCard key={product.name} product={product} index={index} locale={locale} />
             ))}
           </div>
         </div>

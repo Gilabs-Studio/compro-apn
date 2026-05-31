@@ -1,22 +1,38 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { getLandingImage, type ProductItem } from "../content";
+import {
+  getLandingImage,
+  getLandingWhatsAppLink,
+  type ProductItem,
+} from "../content";
 
 type ProductCardProps = {
   product: ProductItem;
   index?: number;
+  locale: string;
 };
 
-export function ProductCard({ product, index = 0 }: Readonly<ProductCardProps>) {
+export function ProductCard({
+  product,
+  index = 0,
+  locale,
+}: Readonly<ProductCardProps>) {
+  const whatsappLink = getLandingWhatsAppLink(locale, product);
+
   return (
-    <motion.article
+    <motion.a
+      href={whatsappLink}
+      target="_blank"
+      rel="noopener noreferrer"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
-      className="relative flex h-full flex-col overflow-hidden bg-white cursor-default"
+      aria-label={locale === "id" ? `Minta penawaran untuk ${product.name}` : `Request a quote for ${product.name}`}
+      className="group relative flex h-full flex-col overflow-hidden bg-white text-left"
     >
       <div className="relative aspect-4/3 shrink-0 overflow-hidden bg-white">
         <Image
@@ -48,7 +64,22 @@ export function ProductCard({ product, index = 0 }: Readonly<ProductCardProps>) 
             </span>
           ))}
         </div>
+        <div className="mt-8 flex items-center justify-between gap-4 border border-neutral-200 bg-neutral-50 px-4 py-4 transition-colors duration-300 group-hover:border-neutral-950 group-hover:bg-white">
+          <div className="min-w-0">
+            <p className="text-sm font-semibold text-neutral-950">
+              {locale === "id" ? "Minta penawaran" : "Request a quote"}
+            </p>
+            <p className="mt-1 text-xs leading-5 text-neutral-500">
+              {locale === "id"
+                ? "Pesan masuk dengan form kebutuhan yang sudah terisi"
+                : "Open a prefilled inquiry message for this product"}
+            </p>
+          </div>
+          <span className="grid size-11 shrink-0 place-items-center rounded-full bg-neutral-950 text-white transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">
+            <ArrowRight className="size-4" />
+          </span>
+        </div>
       </div>
-    </motion.article>
+    </motion.a>
   );
 }
