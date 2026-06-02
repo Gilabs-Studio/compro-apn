@@ -29,8 +29,9 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
-  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: var(--font-sora), var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-accent: var(--font-newsreader), "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-collapsible-down: collapsible-down 0.2s ease-out;
@@ -235,21 +236,21 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-weight: 200; /* Light 200 for better readability while maintaining minimalism */
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
 
   p {
-    font-weight: 200; /* Light 200 for better readability while maintaining minimalism */
+    font-weight: 400;
     letter-spacing: 0.01em; /* Slightly increase letter spacing for better contrast */
     line-height: 1.6; /* Improve line height for readability */
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading tracking-tight;
-    font-weight: 400; /* Regular 400 for headers */
+    font-weight: 600;
   }
 }
 

@@ -9,10 +9,9 @@ export function LandingEyebrow({ children, className }: LandingEyebrowProps) {
   return (
     <p
       className={cn(
-        "text-[1.8rem] leading-none",
+        "font-heading text-[1.8rem] leading-none",
         className,
       )}
-      style={{ fontFamily: "var(--font-damion)" }}
     >
       {children}
     </p>

@@ -32,8 +32,7 @@ export default function HeroSection({ locale, copy }: Readonly<HeroSectionProps>
             {copy.company}
           </h1>
           <p
-            className="mt-7 max-w-2xl text-2xl text-amber-300 sm:text-3xl lg:text-4xl"
-            style={{ fontFamily: "var(--font-damion)" }}
+            className="font-heading mt-7 max-w-2xl text-2xl text-amber-300 sm:text-3xl lg:text-4xl"
           >
             {copy.hero.title}
           </p>

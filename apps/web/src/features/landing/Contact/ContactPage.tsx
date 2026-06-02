@@ -24,10 +24,11 @@ export function ContactPage({ locale }: Readonly<ContactPageProps>) {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  const gmapsEmbedUrl =
-    "https://www.google.com/maps?q=Grand+Cendrawasih+Asri+Jl.+Cendrawasih+Kav.5+Desa%2FKelurahan+Cipayung+Kec.+Ciputat+Kota+Tangerang+Selatan+Banten+15411&output=embed";
-  const gmapsOpenUrl =
-    "https://www.google.com/maps/search/?api=1&query=Grand+Cendrawasih+Asri+Jl.+Cendrawasih+Kav.5+Desa%2FKelurahan+Cipayung+Kec.+Ciputat+Kota+Tangerang+Selatan+Banten+15411";
+  // Use exact coordinates for a reliable embed and open URL
+  const lat = -6.327678067048983;
+  const lng = 106.75129545090675;
+  const gmapsEmbedUrl = `https://www.google.com/maps?ll=${lat},${lng}&q=${lat},${lng}&z=20&t=m&output=embed`;
+  const gmapsOpenUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
 
   return (
     <PageTransition>
@@ -118,7 +119,7 @@ export function ContactPage({ locale }: Readonly<ContactPageProps>) {
                       <span className="grid size-10 shrink-0 place-items-center bg-neutral-950 text-white">
                         <Phone className="size-5" />
                       </span>
-                      <span className="pt-1">081291572817</span>
+                      <span className="pt-1">62 812-9157-2817</span>
                     </a>
                   </div>
                 </div>

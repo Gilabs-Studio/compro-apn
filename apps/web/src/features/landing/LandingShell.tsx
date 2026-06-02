@@ -1,6 +1,7 @@
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
+import { formatWhatsAppLink } from "@/lib/utils";
 import { getLandingCopy } from "./content";
 import { PremiumNav } from "./PremiumNav";
 import { TransitionWrapper } from "./TransitionWrapper";
@@ -12,6 +13,14 @@ type LandingShellProps = {
 
 export function LandingShell({ children, locale }: Readonly<LandingShellProps>) {
   const copy = getLandingCopy(locale);
+  const whatsappMessage = `Halo PT Adiguna,
+
+Saya mendapatkan informasi mengenai perusahaan Anda melalui website dan tertarik untuk berdiskusi lebih lanjut terkait produk/layanan yang tersedia.
+
+Mohon informasi lebih lanjut.
+
+Terima kasih.`;
+  const whatsappLink = formatWhatsAppLink("081291572817", whatsappMessage);
 
   return (
     <div className="min-h-screen bg-[#f6f3ee] text-neutral-950">
@@ -36,14 +45,18 @@ export function LandingShell({ children, locale }: Readonly<LandingShellProps>) 
             </div>
             <div className="relative z-10 mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.1fr_0.9fr]">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-amber-300">
-                  {copy.company}
-                </p>
+                <Image
+                  src="/landing/logo-apn.png"
+                  alt="PT Adiguna Presisi Nusantara"
+                  width={760}
+                  height={382}
+                  className="h-28 w-auto object-contain sm:h-32"
+                />
                 <h2 className="mt-5 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl whitespace-pre-line">
                   {copy.tagline}
                 </h2>
               </div>
-              <div className="grid gap-8 sm:grid-cols-3">
+              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 <div>
                   <p className="text-sm font-semibold text-white/50">
                     {locale === "id" ? "Alamat" : "Address"}
@@ -55,27 +68,27 @@ export function LandingShell({ children, locale }: Readonly<LandingShellProps>) 
                   </div>
                 </div>
 
-                <div>
+                <div className="min-w-0">
                   <p className="text-sm font-semibold text-white/50">
                     {locale === "id" ? "Kontak" : "Contact"}
                   </p>
                   <div className="mt-4 space-y-3 text-sm text-white/72">
                     <a
                       href="mailto:adigunapresisi@gmail.com"
-                      className="inline-flex items-center gap-2 hover:text-white"
+                      className="inline-flex w-full min-w-0 items-start gap-2 hover:text-white"
                     >
-                      <Mail className="size-4" />
-                      <span className="min-w-0 break-all pt-1">adigunapresisi@gmail.com</span>
+                      <Mail className="mt-0.5 size-4 shrink-0" />
+                      <span className="min-w-0 break-all leading-relaxed">adigunapresisi@gmail.com</span>
                     </a>
 
                     <a
                       href="https://wa.me/6281291572817"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex min-w-0 items-start gap-3 hover:text-white"
+                      className="inline-flex w-full min-w-0 items-start gap-3 break-words hover:text-white"
                     >
-                      <Phone className="size-4" />
-                      <span>081291572817</span>
+                      <Phone className="mt-0.5 size-4 shrink-0" />
+                      <span className="min-w-0 break-words">+62 812-9157-2817</span>
                     </a>
                   </div>
                 </div>
@@ -102,6 +115,22 @@ export function LandingShell({ children, locale }: Readonly<LandingShellProps>) 
           </footer>
         </div>
       </TransitionWrapper>
+
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={locale === "id" ? "Chat WhatsApp" : "WhatsApp chat"}
+        className="fixed bottom-5 right-5 z-[999] inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] p-0 overflow-hidden shadow-[0_8px_18px_rgba(0,0,0,0.18)] transition-transform duration-200 hover:-translate-y-0.5 hover:scale-[1.03]"
+      >
+        <Image
+          src="/landing/whatsapp-putih.png"
+          alt="WhatsApp"
+          width={512}
+          height={512}
+          className="h-10 w-10 object-contain"
+        />
+      </a>
     </div>
   );
 }

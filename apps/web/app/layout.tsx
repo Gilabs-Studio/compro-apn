@@ -17,14 +17,14 @@ const geistMono = Geist_Mono({
 });
 
 const headingFont = Sora({
-  variable: "--font-heading",
+  variable: "--font-sora",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   display: "swap",
 });
 
 const accentFont = Newsreader({
-  variable: "--font-accent",
+  variable: "--font-newsreader",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   style: ["italic", "normal"],

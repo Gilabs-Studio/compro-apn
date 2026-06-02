@@ -4,6 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArrowUpRight, Globe2, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
+import Image from "next/image";
 import { Link, usePathname } from "@/i18n/routing";
 import { cn } from "@/lib/utils";
 import { getLandingCopy } from "./content";
@@ -197,25 +198,26 @@ export function PremiumNav({ locale }: PremiumNavProps) {
         }}
         transition={{ duration: 0.45, ease: "easeOut" }}
         className={cn(
-          "mx-auto flex h-14 max-w-7xl items-center justify-between px-0 transition-[background-color,box-shadow,backdrop-filter,padding] duration-300 sm:h-16",
+          "mx-auto flex h-[80px] max-w-7xl items-center justify-between px-0 transition-[background-color,box-shadow,backdrop-filter,padding] duration-300 sm:h-[84px] md:h-[92px] lg:h-[100px]",
           isDarkTheme ? "text-white" : "text-neutral-950",
           showSurface
             ? isDarkTheme
-              ? "rounded-full border border-white/10 bg-neutral-950/72 px-4 shadow-lg shadow-black/10 backdrop-blur-xl sm:px-5"
-              : "rounded-full border border-neutral-950/8 bg-[#f6f3ee]/78 px-4 shadow-lg shadow-black/5 backdrop-blur-xl sm:px-5"
+              ? "rounded-full bg-neutral-950/72 px-4 shadow-lg shadow-black/10 backdrop-blur-xl sm:px-5"
+              : "rounded-full bg-[#f6f3ee]/78 px-4 shadow-lg shadow-black/5 backdrop-blur-xl sm:px-5"
             : "rounded-none border-transparent bg-transparent px-0 shadow-none backdrop-blur-0",
           isHidden && !isOpen ? "pointer-events-none" : "pointer-events-auto",
         )}
       >
-        <Link href="/" className="group flex items-center gap-3">
-          <span
-            className={cn(
-              "text-sm font-semibold tracking-[0.24em] transition-opacity duration-300 group-hover:opacity-70",
-              isDarkTheme ? "text-white/92" : "text-neutral-950/82",
-            )}
-          >
-            ADIGUNA
-          </span>
+        <Link href="/" className="group flex items-center">
+          <Image
+            src="/landing/logo-apn-trim.png"
+            alt="PT Adiguna Presisi Nusantara"
+            width={480}
+            height={241}
+            sizes="(max-width: 640px) 220px, (max-width: 768px) 220px, (max-width: 1024px) 260px, 340px"
+              priority
+              className="h-[64px] w-auto object-contain transition-opacity duration-300 group-hover:opacity-80 sm:h-[72px] md:h-[80px] lg:h-[80px]"
+          />
         </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
