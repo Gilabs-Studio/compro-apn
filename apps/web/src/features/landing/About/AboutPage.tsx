@@ -4,6 +4,7 @@ import { ParallaxImage } from "../ParallaxImage";
 import { Reveal } from "../Reveal";
 import { LandingEyebrow } from "../LandingEyebrow";
 import { getLandingCopy, getLandingImage } from "../content";
+import { cn } from "@/lib/utils";
 
 type AboutPageProps = {
   locale: string;
@@ -104,16 +105,31 @@ export function AboutPage({ locale }: Readonly<AboutPageProps>) {
             </h2>
           </Reveal>
           <div className="mt-14 grid gap-px bg-white/12 sm:grid-cols-2 lg:grid-cols-4">
-            {copy.values.map(([letter, value], index) => (
-              <Reveal key={`${letter}-${value}`} delay={index * 0.04}>
-                <div className="min-h-52 bg-neutral-950/80 backdrop-blur-xs p-7 transition-colors hover:bg-white hover:text-neutral-950">
-                  <span className="text-6xl font-semibold tracking-tight text-amber-300">
-                    {letter}
-                  </span>
-                  <h3 className="mt-8 text-2xl font-semibold">{value}</h3>
-                </div>
-              </Reveal>
-            ))}
+            {copy.values.map(([letter, value], index) => {
+              const isBlankCell = letter === "" && value === "";
+
+              return (
+                <Reveal key={`${letter || "blank"}-${value || index}`} delay={index * 0.04}>
+                  <div
+                    className={cn(
+                      "min-h-52 p-7 transition-colors",
+                      isBlankCell
+                        ? "bg-neutral-950/80"
+                        : "bg-neutral-950/80 backdrop-blur-xs hover:bg-white hover:text-neutral-950",
+                    )}
+                  >
+                    {!isBlankCell ? (
+                      <>
+                        <span className="text-6xl font-semibold tracking-tight text-amber-300">
+                          {letter}
+                        </span>
+                        <h3 className="mt-8 text-2xl font-semibold">{value}</h3>
+                      </>
+                    ) : null}
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>

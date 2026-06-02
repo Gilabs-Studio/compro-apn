@@ -158,6 +158,7 @@ export function getLandingCopy(locale: string) {
       ["A", "Accountability"],
       ["D", "Dedication"],
       ["I", "Integrity"],
+      ["", ""],
       ["G", "Growth"],
       ["U", "Unity"],
       ["N", "Novelty"],
