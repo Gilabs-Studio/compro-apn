@@ -7,7 +7,10 @@ export type LandingProductSlug =
   | "dx-870"
   | "hf-4080"
   | "horizontal-boring-mill"
-  | "cnc-lathe";
+  | "cnc-lathe"
+  | "gh-series"
+  | "gx-series"
+  | "c-series";
 
 export type LandingImageKey =
   | "hero"
@@ -17,7 +20,10 @@ export type LandingImageKey =
   | "machiningCenter"
   | "surfaceGrinder"
   | "boringMill"
-  | "lathe";
+  | "lathe"
+  | "ghSeries"
+  | "gxSeries"
+  | "cSeries";
 
 export type ProductItem = {
   slug: LandingProductSlug;
@@ -61,6 +67,9 @@ const productSlugs: LandingProductSlug[] = [
   "hf-4080",
   "horizontal-boring-mill",
   "cnc-lathe",
+  "gh-series",
+  "gx-series",
+  "c-series",
 ];
 
 const images: Record<LandingImageKey, string> = {
@@ -72,6 +81,9 @@ const images: Record<LandingImageKey, string> = {
   surfaceGrinder: "/landing/HF-4080.webp",
   lathe: "/landing/GY-1390.webp",
   boringMill: "/landing/Gemini_Generated_Image_8gvhv18gvhv18gvh.webp",
+  ghSeries: "/landing/GH series.jpg.jpeg",
+  gxSeries: "/landing/GX Series.jpg.jpeg",
+  cSeries: "/landing/C Series.jpg.jpeg",
 };
 
 export function getLandingImage(key: LandingImageKey) {
@@ -306,6 +318,72 @@ export function getLandingCopy(locale: string) {
           : "High-speed automated CNC lathe for mass cylindrical production",
         image: "lathe",
         specs: ["Turning center", "High repeatability", "Operator friendly"],
+      },
+      {
+        slug: "gh-series",
+        name: "GH Series",
+        category: isId ? "Laser Cutting" : "Laser Cutting",
+        description: isId
+          ? "Mesin laser cutting berperforma tinggi yang mengutamakan efisiensi, presisi, dan keandalan operasional."
+          : "High-performance laser cutting machine prioritizing efficiency, precision, and operational reliability.",
+        image: "ghSeries",
+        specs: isId
+          ? [
+              "Konstruksi kokoh",
+              "Presisi tinggi",
+              "Produktivitas optimal",
+              "Biaya operasional efisien",
+            ]
+          : [
+              "Robust construction",
+              "High precision",
+              "Optimal productivity",
+              "Efficient operating costs",
+            ],
+      },
+      {
+        slug: "gx-series",
+        name: "GX Series",
+        category: isId ? "Laser Cutting" : "Laser Cutting",
+        description: isId
+          ? "Solusi laser cutting berdaya tinggi untuk pemotongan plat logam tebal dan berukuran besar."
+          : "High-power laser cutting solution for cutting thick and large metal plates.",
+        image: "gxSeries",
+        specs: isId
+          ? [
+              "Mendukung daya laser tinggi",
+              "Stabilitas pemotongan maksimal",
+              "Produktivitas tinggi",
+              "Cocok untuk industri berat",
+            ]
+          : [
+              "Supports high laser power",
+              "Maximum cutting stability",
+              "High productivity",
+              "Suitable for heavy industry",
+            ],
+      },
+      {
+        slug: "c-series",
+        name: "C Series",
+        category: isId ? "Laser Cutting" : "Laser Cutting",
+        description: isId
+          ? "Mesin fiber laser ekonomis dengan performa andal untuk kebutuhan produksi sehari-hari."
+          : "Economical fiber laser machine with reliable performance for daily production needs.",
+        image: "cSeries",
+        specs: isId
+          ? [
+              "Investasi terjangkau",
+              "Mudah dioperasikan",
+              "Perawatan sederhana",
+              "Kualitas potong konsisten",
+            ]
+          : [
+              "Affordable investment",
+              "Easy to operate",
+              "Simple maintenance",
+              "Consistent cut quality",
+            ],
       },
     ] satisfies ProductItem[],
     blogPosts: [
