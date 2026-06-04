@@ -64,7 +64,7 @@ export function ProductCard({
             </span>
           ))}
         </div>
-        <div className="mt-8 flex items-center justify-between gap-4 border border-neutral-200 bg-neutral-50 px-4 py-4 transition-colors duration-300 group-hover:border-neutral-950 group-hover:bg-white">
+        <div className="mt-auto flex items-center justify-between gap-4 border border-neutral-200 bg-neutral-50 px-4 py-4 transition-colors duration-300 group-hover:border-neutral-950 group-hover:bg-white">
           <div className="min-w-0">
             <p className="text-sm font-semibold text-neutral-950">
               {locale === "id" ? "Minta penawaran" : "Request a quote"}
