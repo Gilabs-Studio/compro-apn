@@ -99,14 +99,14 @@ export function ContactPage({ locale }: Readonly<ContactPageProps>) {
                   </p>
                   <div className="mt-6 grid gap-4 text-base leading-7 text-neutral-600">
                     <a
-                      href="mailto:adigunapresisi@gmail.com"
+                      href="mailto:adigunapresisinusantara@gmail.com"
                       className="inline-flex items-start gap-3 transition-colors hover:text-neutral-950"
                     >
                       <span className="grid size-10 shrink-0 place-items-center bg-neutral-950 text-white">
                         <Mail className="size-5" />
                       </span>
                       <span className="min-w-0 break-all pt-1">
-                        adigunapresisi@gmail.com
+                        adigunapresisinusantara@gmail.com
                       </span>
                     </a>
 
