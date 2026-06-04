@@ -78,7 +78,11 @@ Terima kasih.`;
                       className="inline-flex w-full min-w-0 items-start gap-2 hover:text-white"
                     >
                       <Mail className="mt-0.5 size-4 shrink-0" />
-                      <span className="min-w-0 break-all leading-relaxed">adigunapresisinusantara@gmail.com</span>
+                      <span className="min-w-0 leading-relaxed">
+                        adigunapresisinusantara
+                        <wbr />
+                        @gmail.com
+                      </span>
                     </a>
 
                     <a
