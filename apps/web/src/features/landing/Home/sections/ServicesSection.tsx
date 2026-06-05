@@ -96,8 +96,8 @@ export default function ServicesSection({ locale, copy }: Readonly<ServicesSecti
 
             <Reveal delay={0.3} className="relative z-10 flex items-center justify-center">
               <Image
-                src={getLandingImage("ghNoBg")}
-                alt={locale === "id" ? "Mesin GH Series Adiguna" : "Adiguna GH Series machine"}
+                src={getLandingImage("layananNoBg")}
+                alt={locale === "id" ? "Ilustrasi layanan dan dukungan Adiguna" : "Adiguna services and support illustration"}
                 width={580}
                 height={326}
                 sizes="(min-width: 1024px) 580px, (min-width: 768px) 520px, 100vw"

@@ -17,6 +17,7 @@ export type LandingImageKey =
   | "hero"
   | "productHero"
   | "aboutHero"
+  | "layananNoBg"
   | "product1"
   | "product2"
   | "product3"
@@ -77,6 +78,7 @@ const images: Record<LandingImageKey, string> = {
   hero: "/landing/hero.webp",
   productHero: "/landing/product-hero-machine3.webp",
   aboutHero: "/landing/about-machine.webp",
+  layananNoBg: "/landing/layanan-nobg.png",
   product1: "/landing/product/1.jpeg",
   product2: "/landing/product/2.jpeg",
   product3: "/landing/product/3.jpeg",
