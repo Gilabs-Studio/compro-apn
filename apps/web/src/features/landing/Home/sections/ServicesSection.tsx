@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Sliders, Wrench, ShieldCheck, Cpu } from "lucide-react";
 import { Reveal } from "../../Reveal";
 import { LandingEyebrow } from "../../LandingEyebrow";
+import { getLandingImage } from "../../content";
 
 type ServicesSectionProps = {
   locale: string;
@@ -95,8 +96,8 @@ export default function ServicesSection({ locale, copy }: Readonly<ServicesSecti
 
             <Reveal delay={0.3} className="relative z-10 flex items-center justify-center">
               <Image
-                src="/landing/HF-4080-nobg.png"
-                alt="Adiguna HF-4080 Surface Grinder"
+                src={getLandingImage("ghNoBg")}
+                alt={locale === "id" ? "Mesin GH Series Adiguna" : "Adiguna GH Series machine"}
                 width={580}
                 height={326}
                 sizes="(min-width: 1024px) 580px, (min-width: 768px) 520px, 100vw"

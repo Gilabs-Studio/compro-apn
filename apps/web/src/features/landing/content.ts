@@ -23,6 +23,7 @@ export type LandingImageKey =
   | "product4"
   | "product5"
   | "product6"
+  | "ghNoBg"
   | "ghSeries"
   | "gxSeries"
   | "cSeries";
@@ -82,6 +83,7 @@ const images: Record<LandingImageKey, string> = {
   product4: "/landing/product/4.jpeg",
   product5: "/landing/product/5.jpeg",
   product6: "/landing/product/6.jpeg",
+  ghNoBg: "/landing/gh-nobg.png",
   ghSeries: "/landing/gh-series.jpg",
   gxSeries: "/landing/gx-series.jpg",
   cSeries: "/landing/c-series.jpg",
@@ -179,12 +181,12 @@ export function getLandingCopy(locale: string) {
         label: isId ? "Mesin & Perkakas Bengkel" : "Machines & Workshop Tools",
       },
       {
-        value: "-",
-        label: isId ? "Dukungan Teknis Total" : "Total Technical Support",
+        value: "OEM",
+        label: isId ? "Solusi Industri Presisi" : "Precision Industrial Solutions",
       },
       {
-        value: "-",
-        label: isId ? "Sektor Industri Utama" : "Key Industrial Sectors",
+        value: "Ready",
+        label: isId ? "Instalasi & Dukungan Teknis" : "Installation & Technical Support",
       },
     ],
     services: [
@@ -275,7 +277,7 @@ export function getLandingCopy(locale: string) {
       {
         slug: "vertical-machining-center",
         name: "High Rigidity Vertical Machining Center Series",
-        category: "CNC Miling",
+        category: "CNC Milling",
         description: isId
           ? "High Rigidity Vertical Machining Center (VMC) Series adalah seri mesin CNC milling vertikal yang dirancang dengan struktur mesin yang sangat kaku dan kokoh sehingga mampu melakukan pemotongan berat, presisi tinggi, dan minim getaran."
           : "High Rigidity Vertical Machining Center (VMC) Series is a vertical CNC milling machine series designed with an extremely rigid and robust structure, capable of heavy cutting, high precision, and minimal vibration.",
@@ -285,7 +287,7 @@ export function getLandingCopy(locale: string) {
       {
         slug: "engraving-milling",
         name: "High Speed Engraving and Milling Machine Series",
-        category: "CNC Miling",
+        category: "CNC Milling",
         description: isId
           ? "High Speed Engraving and Milling Machine Series adalah seri mesin CNC milling berkecepatan tinggi yang dioptimalkan untuk pekerjaan ukiran, detail halus, dan finishing presisi."
           : "High Speed Engraving and Milling Machine Series is a high-speed CNC milling machine series optimized for engraving, fine detailing, and precision finishing.",
@@ -305,7 +307,7 @@ export function getLandingCopy(locale: string) {
       {
         slug: "horizontal-machining-center",
         name: "Horizontal Machining Center Series",
-        category: "CNC Miling",
+        category: "CNC Milling",
         description: isId
           ? "Horizontal Machining Center (HMC) Series adalah seri mesin CNC machining center dengan spindle horizontal yang dirancang untuk produktivitas tinggi, pemesinan multi-sisi, dan produksi massal."
           : "Horizontal Machining Center (HMC) Series is a CNC machining center series with a horizontal spindle designed for high productivity, multi-sided machining, and mass production.",
@@ -315,7 +317,7 @@ export function getLandingCopy(locale: string) {
       {
         slug: "five-axis-machining",
         name: "Five Axis Machining Center Series",
-        category: "CNC Miling",
+        category: "CNC Milling",
         description: isId
           ? "Five Axis Machining Center (5-Axis Machining Center) Series adalah seri mesin CNC yang dapat menggerakkan pahat atau benda kerja pada 5 sumbu secara bersamaan,"
           : "Five Axis Machining Center (5-Axis Machining Center) Series is a CNC machine series capable of moving the tool or workpiece along 5 axes simultaneously,",
@@ -325,7 +327,7 @@ export function getLandingCopy(locale: string) {
       {
         slug: "drilling-tapping",
         name: "High Speed Drilling and Tapping Center",
-        category: "CNC Miling",
+        category: "CNC Milling",
         description: isId
           ? "High Speed Drilling and Tapping Center Series adalah seri mesin CNC yang dioptimalkan untuk proses pengeboran, pembuatan ulir, dan milling ringan dengan kecepatan tinggi serta waktu pergantian tool yang sangat cepat."
           : "High Speed Drilling and Tapping Center Series is a CNC machine series optimized for high-speed drilling, tapping, and light milling with rapid tool change times.",
