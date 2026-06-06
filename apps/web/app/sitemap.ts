@@ -1,18 +1,26 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import {
+  SEO_BASE_URL,
+  SUPPORTED_SEO_LOCALES,
+  getLocalizedPath,
+} from "@/lib/seo";
+
+const LANDING_PATHS = ["/", "/product", "/about", "/contact", "/blog"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://adigunapresisinusantara.com";
-  const locales = ["id", "en"] as const;
-  const paths = ["", "/product", "/about", "/contact", "/blog"];
+  return SUPPORTED_SEO_LOCALES.flatMap((locale) =>
+    LANDING_PATHS.map((path) => {
+      const localizedPath = getLocalizedPath(path, locale);
+      const isHomePage = path === "/";
 
-  return [
-    ...locales.flatMap((locale) =>
-      paths.map((path) => ({
-        url: `${baseUrl}/${locale}${path}`,
+      return {
+        url: `${SEO_BASE_URL}${localizedPath}`,
         lastModified: new Date(),
-        changeFrequency: "weekly" as const,
-        priority: path === "" ? 1 : 0.8,
-      })),
-    ),
-  ];
+        changeFrequency: (isHomePage ? "monthly" : "weekly") as
+          | "monthly"
+          | "weekly",
+        priority: isHomePage ? 1 : 0.9,
+      };
+    }),
+  );
 }
