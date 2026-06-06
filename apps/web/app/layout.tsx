@@ -2,7 +2,11 @@ import type { Metadata, Viewport } from "next";
 import { Damion, Geist, Geist_Mono, Sora, Newsreader } from "next/font/google";
 import { getLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { getLanguageAlternates } from "@/lib/seo";
+import {
+  COMPANY_NAME,
+  getCompanyKeywords,
+  getLanguageAlternates,
+} from "@/lib/seo";
 import type { Locale } from "@/types/locale";
 import "./globals.css";
 
@@ -53,50 +57,38 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL("https://adigunapresisi.co.id"),
     title: {
-      template: "%s | PT Adiguna Presisi Nusantara",
+      template: `%s | ${COMPANY_NAME}`,
       default:
-        "PT Adiguna Presisi Nusantara - Precision Machinery & Manufacturing Solutions",
+        `${COMPANY_NAME} - Precision Machinery & Manufacturing Solutions`,
     },
     description:
       "PT Adiguna Presisi Nusantara menyediakan mesin CNC, mesin perkakas workshop, tooling machining, instalasi mesin, dan engineering support untuk industri Indonesia.",
-    keywords: [
-      "PT Adiguna Presisi Nusantara",
-      "mesin CNC Indonesia",
-      "mesin industri",
-      "mesin perkakas workshop",
-      "tooling machining",
-      "precision machinery",
-      "manufacturing solutions",
-      "instalasi mesin",
-      "engineering support",
-      "surface grinding machine",
-      "vertical machining center",
-    ],
-    authors: [{ name: "PT Adiguna Presisi Nusantara" }],
-    creator: "PT Adiguna Presisi Nusantara",
-    publisher: "PT Adiguna Presisi Nusantara",
+    keywords: getCompanyKeywords(["surface grinding machine", "vertical machining center"]),
+    authors: [{ name: COMPANY_NAME }],
+    creator: COMPANY_NAME,
+    publisher: COMPANY_NAME,
     openGraph: {
       type: "website",
       locale: locale === "id" ? "id_ID" : "en_US",
       url: "https://adigunapresisi.co.id",
       title:
-        "PT Adiguna Presisi Nusantara - Precision Machinery & Manufacturing Solutions",
+        `${COMPANY_NAME} - Precision Machinery & Manufacturing Solutions`,
       description:
         "Penyedia mesin CNC, mesin perkakas workshop, tooling machining, instalasi mesin, dan engineering support untuk industri Indonesia.",
-      siteName: "PT Adiguna Presisi Nusantara",
+      siteName: COMPANY_NAME,
       images: [
         {
           url: "/landing/og-machine.svg",
           width: 1920,
           height: 1080,
-          alt: "PT Adiguna Presisi Nusantara precision machinery",
+          alt: `${COMPANY_NAME} precision machinery`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
       title:
-        "PT Adiguna Presisi Nusantara - Precision Machinery & Manufacturing Solutions",
+        `${COMPANY_NAME} - Precision Machinery & Manufacturing Solutions`,
       description:
         "Penyedia mesin CNC, mesin perkakas workshop, tooling machining, instalasi mesin, dan engineering support untuk industri Indonesia.",
       images: ["/landing/og-machine.svg"],
