@@ -5,6 +5,7 @@ import { routing } from "@/i18n/routing";
 import {
   COMPANY_NAME,
   getCompanyKeywords,
+  SEO_BASE_URL,
   getLanguageAlternates,
 } from "@/lib/seo";
 import type { Locale } from "@/types/locale";
@@ -55,7 +56,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 
   return {
-    metadataBase: new URL("https://adigunapresisi.co.id"),
+    metadataBase: new URL(SEO_BASE_URL),
     title: {
       template: `%s | ${COMPANY_NAME}`,
       default:
@@ -70,7 +71,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       type: "website",
       locale: locale === "id" ? "id_ID" : "en_US",
-      url: "https://adigunapresisi.co.id",
+      url: SEO_BASE_URL,
       title:
         `${COMPANY_NAME} - Precision Machinery & Manufacturing Solutions`,
       description:
@@ -105,7 +106,7 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     alternates: {
-      canonical: "https://adigunapresisi.co.id",
+      canonical: SEO_BASE_URL,
       languages: getLanguageAlternates("/"),
     },
   };

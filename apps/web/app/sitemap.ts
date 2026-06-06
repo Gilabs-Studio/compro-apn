@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://adigunapresisi.co.id";
+  const baseUrl = "https://adigunapresisinusantara.com";
   const locales = ["id", "en"] as const;
   const paths = ["", "/product", "/about", "/contact", "/blog"];
 

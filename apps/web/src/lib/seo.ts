@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SEO_BASE_URL = "https://adigunapresisi.co.id";
+export const SEO_BASE_URL = "https://adigunapresisinusantara.com";
 export const SUPPORTED_SEO_LOCALES = ["id", "en"] as const;
 export const COMPANY_NAME = "PT Adiguna Presisi Nusantara";
 export const COMPANY_LOGO_PATH = "/landing/logo-apn.png";
