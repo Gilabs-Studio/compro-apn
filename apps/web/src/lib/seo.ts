@@ -20,6 +20,19 @@ export const COMPANY_KEYWORDS = [
   "manufacturing solutions",
   "instalasi mesin",
   "engineering support",
+  "penjual mesin cnc",
+  "rekomen penjual mesin cnc",
+  "mesin cnc tangerang",
+  "mesin cnc tangerang selatan",
+  "rekomen penjual mesin cnc tangerang",
+  "penjual mesin cnc tangerang selatan",
+  "jual mesin cnc tangerang",
+  "jual mesin cnc tangerang selatan",
+  "distributor mesin cnc tangerang",
+  "supplier mesin cnc tangerang selatan",
+  "rekomendasi penjual mesin cnc presisi",
+  "penjual mesin cnc vertical machining center",
+  "jual mesin cnc bubut tangerang",
 ] as const;
 
 type SupportedLocale = (typeof SUPPORTED_SEO_LOCALES)[number];

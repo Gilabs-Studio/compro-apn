@@ -172,8 +172,8 @@ export function getLandingCopy(locale: string) {
     hero: {
       title: "Precision Machinery & Manufacturing Solutions",
       description: isId
-        ? "Mesin CNC premium, perkakas presisi, instalasi, dan dukungan teknik ahli untuk industri manufaktur Anda"
-        : "Premium CNC machines, precision tooling, expert installation, and engineering support for your manufacturing needs",
+        ? "PT Adiguna Presisi Nusantara adalah penjual mesin CNC premium dan penyedia perkakas presisi di Tangerang / Tangerang Selatan dengan jaminan instalasi serta dukungan teknik ahli."
+        : "PT Adiguna Presisi Nusantara is a premium CNC machine supplier and precision tooling provider in Tangerang / South Tangerang with guaranteed installation and expert engineering support.",
       primaryCta: isId ? "Lihat Produk" : "View Products",
       secondaryCta: isId ? "Konsultasi Teknis" : "Technical Consultation",
     },
