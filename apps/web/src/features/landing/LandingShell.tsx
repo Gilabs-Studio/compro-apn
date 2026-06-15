@@ -106,6 +106,7 @@ Terima kasih.`;
                       <Link
                         key={item.href}
                         href={item.href}
+                        locale={locale}
                         className="group inline-flex items-center gap-2 transition-colors hover:text-white"
                       >
                         {item.label}

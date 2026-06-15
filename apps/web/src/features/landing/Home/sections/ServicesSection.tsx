@@ -2,11 +2,11 @@ import Image from "next/image";
 import { Sliders, Wrench, ShieldCheck, Cpu } from "lucide-react";
 import { Reveal } from "../../Reveal";
 import { LandingEyebrow } from "../../LandingEyebrow";
-import { getLandingImage } from "../../content";
+import { getLandingCopy, getLandingImage } from "../../content";
 
 type ServicesSectionProps = {
   locale: string;
-  copy: any;
+  copy: ReturnType<typeof getLandingCopy>;
 };
 
 export default function ServicesSection({ locale, copy }: Readonly<ServicesSectionProps>) {

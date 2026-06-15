@@ -4,6 +4,8 @@ import {
   getLocaleFromCountryCode,
   getLocalePreferenceFromCookieValue,
   LOCALE_PREFERENCE_COOKIE,
+  REQUEST_LOCALE_HEADER,
+  normalizeLocale,
 } from "@/lib/locale-preference";
 
 /**
@@ -31,16 +33,21 @@ export function proxy(request: NextRequest) {
 
   // Extract locale from pathname
   const pathSegments = pathname.split("/").filter(Boolean);
-  const pathLocale = pathSegments[0] === "en" || pathSegments[0] === "id" 
-    ? pathSegments[0] 
-    : null;
+  const pathLocale = normalizeLocale(pathSegments[0]);
   const requestCountryCode =
     request.headers.get("x-vercel-ip-country") ??
     request.headers.get("cf-ipcountry") ??
     request.headers.get("x-country-code");
   const detectedLocale = pathLocale ?? cookieLocale ?? getLocaleFromCountryCode(requestCountryCode);
 
-  const response = NextResponse.next();
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set(REQUEST_LOCALE_HEADER, detectedLocale);
+
+  const response = NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
   if (cookieLocale !== detectedLocale) {
     response.cookies.set({
       name: LOCALE_PREFERENCE_COOKIE,

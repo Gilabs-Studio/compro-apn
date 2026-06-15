@@ -1,7 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Damion, Geist, Geist_Mono, Sora, Newsreader } from "next/font/google";
+import { headers } from "next/headers";
 import { getLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import {
+  normalizeLocale,
+  REQUEST_LOCALE_HEADER,
+} from "@/lib/locale-preference";
 import {
   COMPANY_NAME,
   getCompanyKeywords,
@@ -43,17 +48,35 @@ const damionFont = Damion({
   display: "swap",
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  let locale: Locale;
+async function resolveRequestLocale(): Promise<Locale> {
+  try {
+    const headerStore = await headers();
+    const headerLocale = normalizeLocale(
+      headerStore.get(REQUEST_LOCALE_HEADER),
+    );
+
+    if (headerLocale) {
+      return headerLocale;
+    }
+  } catch {
+    // Fall through to next-intl locale resolution.
+  }
 
   try {
     const localeValue = await getLocale();
-    locale = routing.locales.includes(localeValue as Locale)
-      ? (localeValue as Locale)
-      : routing.defaultLocale;
+
+    if (routing.locales.includes(localeValue as Locale)) {
+      return localeValue as Locale;
+    }
   } catch {
-    locale = routing.defaultLocale;
+    // Fall through to default locale.
   }
+
+  return routing.defaultLocale;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await resolveRequestLocale();
 
   return {
     metadataBase: new URL(SEO_BASE_URL),
@@ -124,15 +147,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  let locale: Locale;
-  try {
-    const localeValue = await getLocale();
-    locale = routing.locales.includes(localeValue as Locale)
-      ? (localeValue as Locale)
-      : routing.defaultLocale;
-  } catch {
-    locale = routing.defaultLocale;
-  }
+  const locale = await resolveRequestLocale();
 
   return (
     <html lang={locale} suppressHydrationWarning>

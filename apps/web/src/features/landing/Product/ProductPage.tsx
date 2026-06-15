@@ -1,6 +1,5 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { Link } from "@/i18n/routing";
 import { PageTransition } from "../PageTransition";
 import { ParallaxImage } from "../ParallaxImage";
 import { Reveal } from "../Reveal";
@@ -76,7 +75,7 @@ export function ProductPage({ locale }: Readonly<ProductPageProps>) {
                   : "Product Selection"}
               </h2>
             </div>
-            <Link
+            <a
               href={inquiryLink}
               target="_blank"
               rel="noopener noreferrer"
@@ -84,7 +83,7 @@ export function ProductPage({ locale }: Readonly<ProductPageProps>) {
             >
               {locale === "id" ? "Minta penawaran" : "Request a quote"}
               <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </a>
           </Reveal>
 
           <div className="mt-14 grid gap-6 lg:grid-cols-2">
