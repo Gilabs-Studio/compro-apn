@@ -17,10 +17,12 @@ export async function generateMetadata({
     title: `${locale === "id" ? "Produk" : "Product"} - ${copy.company}`,
     description:
       locale === "id"
-        ? "Katalog mesin CNC, grinding, machining center, dan solusi manufaktur PT Adiguna Presisi Nusantara."
-        : "Catalog of CNC, grinding, machining center, and manufacturing solutions from PT Adiguna Presisi Nusantara.",
+        ? "Katalog mesin CNC, machining center, CNC turning, laser cutting, dan solusi manufaktur PT Adiguna Presisi Nusantara di Tangerang Selatan."
+        : "Catalog of CNC machines, machining centers, CNC turning, laser cutting, and manufacturing solutions from PT Adiguna Presisi Nusantara in South Tangerang.",
     keywords: [
       "katalog mesin CNC",
+      "penjual mesin CNC Tangerang",
+      "vendor mesin CNC Tangerang Selatan",
       "vertical machining center",
       "horizontal machining center",
       "precision lathe",

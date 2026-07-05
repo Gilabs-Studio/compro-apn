@@ -56,7 +56,7 @@ Terima kasih.`;
                   {copy.tagline}
                 </h2>
               </div>
-              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
                 <div>
                   <p className="text-sm font-semibold text-white/50">
                     {locale === "id" ? "Alamat" : "Address"}
@@ -103,6 +103,25 @@ Terima kasih.`;
                   </p>
                   <div className="mt-4 grid gap-3 text-sm text-white/72">
                     {copy.nav.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        locale={locale}
+                        className="group inline-flex items-center gap-2 transition-colors hover:text-white"
+                      >
+                        {item.label}
+                        <ArrowUpRight className="size-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-sm font-semibold text-white/50">
+                    {locale === "id" ? "Layanan" : "Services"}
+                  </p>
+                  <div className="mt-4 grid gap-3 text-sm text-white/72">
+                    {copy.serviceLinks.map((item) => (
                       <Link
                         key={item.href}
                         href={item.href}

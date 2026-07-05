@@ -72,6 +72,9 @@ const productSlugs: LandingProductSlug[] = [
   "horizontal-machining-center",
   "five-axis-machining",
   "drilling-tapping",
+  "gh-series",
+  "gx-series",
+  "c-series",
 ];
 
 const images: Record<LandingImageKey, string> = {
@@ -168,6 +171,26 @@ export function getLandingCopy(locale: string) {
       { label: isId ? "Tentang Kami" : "About", href: "/about" },
       { label: isId ? "Blog" : "Blog", href: "/blog" },
       { label: isId ? "Kontak" : "Contact", href: "/contact" },
+    ],
+    serviceLinks: [
+      {
+        label: isId
+          ? "Jual Mesin CNC Tangerang"
+          : "CNC Machine Supplier Tangerang",
+        href: "/jual-mesin-cnc-tangerang",
+      },
+      {
+        label: isId ? "Vertical Machining Center" : "Vertical Machining Center",
+        href: "/product/vertical-machining-center",
+      },
+      {
+        label: isId ? "CNC Turning Precision Lathe" : "CNC Turning Precision Lathe",
+        href: "/product/precision-lathe",
+      },
+      {
+        label: isId ? "Mesin Fiber Laser Cutting" : "Fiber Laser Cutting Machine",
+        href: "/product/gh-series",
+      },
     ],
     hero: {
       title: "Precision Machinery & Manufacturing Solutions",
@@ -270,9 +293,8 @@ export function getLandingCopy(locale: string) {
       isId ? "Peralatan industri" : "Industrial equipment",
     ],
     address: [
-      "Grand Cendrawasih Asri",
-      "Jl. Cendrawasih Kav.5",
-      "Desa/Kelurahan Cipayung, Kec. Ciputat",
+      "MQC2+WGG, Jl. Grand Cendrawasih Asri",
+      "Cipayung, Kec. Ciputat",
       "Kota Tangerang Selatan, Banten 15411",
     ],
     products: [
