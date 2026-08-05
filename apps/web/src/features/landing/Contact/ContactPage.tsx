@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { PageTransition } from "../PageTransition";
 import { Reveal } from "../Reveal";
 import { LandingEyebrow } from "../LandingEyebrow";
@@ -29,6 +29,7 @@ export function ContactPage({ locale }: Readonly<ContactPageProps>) {
   const lng = 106.75129545090675;
   const gmapsEmbedUrl = `https://www.google.com/maps?ll=${lat},${lng}&q=${lat},${lng}&z=20&t=m&output=embed`;
   const gmapsOpenUrl = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+  const instagramUrl = "https://www.instagram.com/adigunapresisinusantara/";
 
   return (
     <PageTransition>
@@ -99,14 +100,14 @@ export function ContactPage({ locale }: Readonly<ContactPageProps>) {
                   </p>
                   <div className="mt-6 grid gap-4 text-base leading-7 text-neutral-600">
                     <a
-                      href="mailto:adigunapresisinusantara@gmail.com"
+                      href="mailto:adigunapresisi@gmail.com"
                       className="inline-flex items-start gap-3 transition-colors hover:text-neutral-950"
                     >
                       <span className="grid size-10 shrink-0 place-items-center bg-neutral-950 text-white">
                         <Mail className="size-5" />
                       </span>
                       <span className="min-w-0 break-all pt-1">
-                        adigunapresisinusantara@gmail.com
+                        adigunapresisigmail.com
                       </span>
                     </a>
 
@@ -120,6 +121,18 @@ export function ContactPage({ locale }: Readonly<ContactPageProps>) {
                         <Phone className="size-5" />
                       </span>
                       <span className="pt-1">62 812-9157-2817</span>
+                    </a>
+
+                    <a
+                      href={instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-start gap-3 transition-colors hover:text-neutral-950"
+                    >
+                      <span className="grid size-10 shrink-0 place-items-center bg-neutral-950 text-white">
+                        <Instagram className="size-5" />
+                      </span>
+                      <span className="pt-1">adigunapresisinusantara</span>
                     </a>
                   </div>
                 </div>

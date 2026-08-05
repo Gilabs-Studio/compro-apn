@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail, Phone } from "lucide-react";
+import { ArrowUpRight, Instagram, Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { formatWhatsAppLink } from "@/lib/utils";
@@ -21,6 +21,7 @@ Mohon informasi lebih lanjut.
 
 Terima kasih.`;
   const whatsappLink = formatWhatsAppLink("081291572817", whatsappMessage);
+  const instagramUrl = "https://www.instagram.com/adigunapresisinusantara/";
 
   return (
     <div className="min-h-screen bg-[#f6f3ee] text-neutral-950">
@@ -74,12 +75,12 @@ Terima kasih.`;
                   </p>
                   <div className="mt-4 space-y-3 text-sm text-white/72">
                     <a
-                      href="mailto:adigunapresisinusantara@gmail.com"
+                      href="mailto:adigunapresisi@gmail.com"
                       className="inline-flex w-full min-w-0 items-start gap-2 hover:text-white"
                     >
                       <Mail className="mt-0.5 size-4 shrink-0" />
                       <span className="min-w-0 leading-relaxed">
-                        adigunapresisinusantara
+                        adigunapresisi
                         <wbr />
                         @gmail.com
                       </span>
@@ -93,6 +94,18 @@ Terima kasih.`;
                     >
                       <Phone className="mt-0.5 size-4 shrink-0" />
                       <span className="min-w-0 break-words">+62 812-9157-2817</span>
+                    </a>
+
+                    <a
+                      href={instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex w-full min-w-0 items-start gap-3 break-words hover:text-white"
+                    >
+                      <Instagram className="mt-0.5 size-4 shrink-0" />
+                      <span className="min-w-0 break-words">
+                        adigunapresisinusantara
+                      </span>
                     </a>
                   </div>
                 </div>
