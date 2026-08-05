@@ -72,6 +72,9 @@ const productSlugs: LandingProductSlug[] = [
   "horizontal-machining-center",
   "five-axis-machining",
   "drilling-tapping",
+  "gh-series",
+  "gx-series",
+  "c-series",
 ];
 
 const images: Record<LandingImageKey, string> = {
@@ -169,11 +172,31 @@ export function getLandingCopy(locale: string) {
       { label: isId ? "Blog" : "Blog", href: "/blog" },
       { label: isId ? "Kontak" : "Contact", href: "/contact" },
     ],
+    serviceLinks: [
+      {
+        label: isId
+          ? "Jual Mesin CNC Tangerang"
+          : "CNC Machine Supplier Tangerang",
+        href: "/jual-mesin-cnc-tangerang",
+      },
+      {
+        label: isId ? "Vertical Machining Center" : "Vertical Machining Center",
+        href: "/product/vertical-machining-center",
+      },
+      {
+        label: isId ? "CNC Turning Precision Lathe" : "CNC Turning Precision Lathe",
+        href: "/product/precision-lathe",
+      },
+      {
+        label: isId ? "Mesin Fiber Laser Cutting" : "Fiber Laser Cutting Machine",
+        href: "/product/gh-series",
+      },
+    ],
     hero: {
       title: "Precision Machinery & Manufacturing Solutions",
       description: isId
-        ? "Mesin CNC premium, perkakas presisi, instalasi, dan dukungan teknik ahli untuk industri manufaktur Anda"
-        : "Premium CNC machines, precision tooling, expert installation, and engineering support for your manufacturing needs",
+        ? "PT Adiguna Presisi Nusantara adalah vendor dan penjual mesin CNC premium serta penyedia perkakas presisi di Tangerang / Tangerang Selatan dengan jaminan instalasi serta dukungan teknik ahli."
+        : "PT Adiguna Presisi Nusantara is a premium CNC machine vendor and supplier of precision tooling in Tangerang / South Tangerang with guaranteed installation and expert engineering support.",
       primaryCta: isId ? "Lihat Produk" : "View Products",
       secondaryCta: isId ? "Konsultasi Teknis" : "Technical Consultation",
     },
@@ -270,9 +293,8 @@ export function getLandingCopy(locale: string) {
       isId ? "Peralatan industri" : "Industrial equipment",
     ],
     address: [
-      "Grand Cendrawasih Asri",
-      "Jl. Cendrawasih Kav.5",
-      "Desa/Kelurahan Cipayung, Kec. Ciputat",
+      "MQC2+WGG, Jl. Grand Cendrawasih Asri",
+      "Cipayung, Kec. Ciputat",
       "Kota Tangerang Selatan, Banten 15411",
     ],
     products: [

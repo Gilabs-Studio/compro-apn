@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { Reveal } from "../../Reveal";
 import { LandingEyebrow } from "../../LandingEyebrow";
+import { getLandingCopy } from "../../content";
 
 type CapabilitiesSectionProps = {
   locale: string;
-  copy: any;
+  copy: ReturnType<typeof getLandingCopy>;
 };
 
 export default function CapabilitiesSection({ locale, copy }: Readonly<CapabilitiesSectionProps>) {
@@ -40,7 +41,7 @@ export default function CapabilitiesSection({ locale, copy }: Readonly<Capabilit
           </h2>
         </Reveal>
         <div className="grid gap-6 sm:grid-cols-3">
-          {copy.stats.map((stat: any, index: number) => (
+          {copy.stats.map((stat, index) => (
             <Reveal key={stat.label} delay={index * 0.08}>
               <div className="border-l border-white/15 py-2 pl-6">
                 <p className="text-5xl font-semibold tracking-tight">

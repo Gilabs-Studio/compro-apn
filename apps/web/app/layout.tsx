@@ -1,8 +1,18 @@
 import type { Metadata, Viewport } from "next";
 import { Damion, Geist, Geist_Mono, Sora, Newsreader } from "next/font/google";
+import { headers } from "next/headers";
 import { getLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { getLanguageAlternates } from "@/lib/seo";
+import {
+  normalizeLocale,
+  REQUEST_LOCALE_HEADER,
+} from "@/lib/locale-preference";
+import {
+  COMPANY_NAME,
+  getCompanyKeywords,
+  SEO_BASE_URL,
+  getLanguageAlternates,
+} from "@/lib/seo";
 import type { Locale } from "@/types/locale";
 import "./globals.css";
 
@@ -38,65 +48,71 @@ const damionFont = Damion({
   display: "swap",
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  let locale: Locale;
+async function resolveRequestLocale(): Promise<Locale> {
+  try {
+    const headerStore = await headers();
+    const headerLocale = normalizeLocale(
+      headerStore.get(REQUEST_LOCALE_HEADER),
+    );
+
+    if (headerLocale) {
+      return headerLocale;
+    }
+  } catch {
+    // Fall through to next-intl locale resolution.
+  }
 
   try {
     const localeValue = await getLocale();
-    locale = routing.locales.includes(localeValue as Locale)
-      ? (localeValue as Locale)
-      : routing.defaultLocale;
+
+    if (routing.locales.includes(localeValue as Locale)) {
+      return localeValue as Locale;
+    }
   } catch {
-    locale = routing.defaultLocale;
+    // Fall through to default locale.
   }
 
+  return routing.defaultLocale;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await resolveRequestLocale();
+
   return {
-    metadataBase: new URL("https://adigunapresisi.co.id"),
+    metadataBase: new URL(SEO_BASE_URL),
     title: {
-      template: "%s | PT Adiguna Presisi Nusantara",
+      template: `%s | ${COMPANY_NAME}`,
       default:
-        "PT Adiguna Presisi Nusantara - Precision Machinery & Manufacturing Solutions",
+        `${COMPANY_NAME} - Precision Machinery & Manufacturing Solutions`,
     },
     description:
       "PT Adiguna Presisi Nusantara menyediakan mesin CNC, mesin perkakas workshop, tooling machining, instalasi mesin, dan engineering support untuk industri Indonesia.",
-    keywords: [
-      "PT Adiguna Presisi Nusantara",
-      "mesin CNC Indonesia",
-      "mesin industri",
-      "mesin perkakas workshop",
-      "tooling machining",
-      "precision machinery",
-      "manufacturing solutions",
-      "instalasi mesin",
-      "engineering support",
-      "surface grinding machine",
-      "vertical machining center",
-    ],
-    authors: [{ name: "PT Adiguna Presisi Nusantara" }],
-    creator: "PT Adiguna Presisi Nusantara",
-    publisher: "PT Adiguna Presisi Nusantara",
+    keywords: getCompanyKeywords(["surface grinding machine", "vertical machining center"]),
+    authors: [{ name: COMPANY_NAME }],
+    creator: COMPANY_NAME,
+    publisher: COMPANY_NAME,
     openGraph: {
       type: "website",
       locale: locale === "id" ? "id_ID" : "en_US",
-      url: "https://adigunapresisi.co.id",
+      url: SEO_BASE_URL,
       title:
-        "PT Adiguna Presisi Nusantara - Precision Machinery & Manufacturing Solutions",
+        `${COMPANY_NAME} - Precision Machinery & Manufacturing Solutions`,
       description:
         "Penyedia mesin CNC, mesin perkakas workshop, tooling machining, instalasi mesin, dan engineering support untuk industri Indonesia.",
-      siteName: "PT Adiguna Presisi Nusantara",
+      siteName: COMPANY_NAME,
       images: [
         {
           url: "/landing/og-machine.svg",
           width: 1920,
           height: 1080,
-          alt: "PT Adiguna Presisi Nusantara precision machinery",
+          alt: `${COMPANY_NAME} precision machinery`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
       title:
-        "PT Adiguna Presisi Nusantara - Precision Machinery & Manufacturing Solutions",
+        `${COMPANY_NAME} - Precision Machinery & Manufacturing Solutions`,
       description:
         "Penyedia mesin CNC, mesin perkakas workshop, tooling machining, instalasi mesin, dan engineering support untuk industri Indonesia.",
       images: ["/landing/og-machine.svg"],
@@ -113,7 +129,7 @@ export async function generateMetadata(): Promise<Metadata> {
       },
     },
     alternates: {
-      canonical: "https://adigunapresisi.co.id",
+      canonical: SEO_BASE_URL,
       languages: getLanguageAlternates("/"),
     },
   };
@@ -131,15 +147,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  let locale: Locale;
-  try {
-    const localeValue = await getLocale();
-    locale = routing.locales.includes(localeValue as Locale)
-      ? (localeValue as Locale)
-      : routing.defaultLocale;
-  } catch {
-    locale = routing.defaultLocale;
-  }
+  const locale = await resolveRequestLocale();
 
   return (
     <html lang={locale} suppressHydrationWarning>

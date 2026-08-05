@@ -1,11 +1,11 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { ParallaxImage } from "../../ParallaxImage";
-import { getLandingImage } from "../../content";
+import { getLandingCopy, getLandingImage } from "../../content";
 
 type HeroSectionProps = {
   locale: string;
-  copy: any;
+  copy: ReturnType<typeof getLandingCopy>;
 };
 
 export default function HeroSection({ locale, copy }: Readonly<HeroSectionProps>) {
@@ -42,6 +42,7 @@ export default function HeroSection({ locale, copy }: Readonly<HeroSectionProps>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/product"
+              locale={locale}
               className="group inline-flex h-12 items-center justify-center gap-2 bg-white px-6 text-sm font-semibold text-neutral-950 transition-transform duration-300 hover:-translate-y-0.5"
             >
               {copy.hero.primaryCta}
@@ -49,6 +50,7 @@ export default function HeroSection({ locale, copy }: Readonly<HeroSectionProps>
             </Link>
             <Link
               href="/contact"
+              locale={locale}
               className="inline-flex h-12 items-center justify-center border border-white/25 px-6 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-neutral-950"
             >
               {copy.hero.secondaryCta}

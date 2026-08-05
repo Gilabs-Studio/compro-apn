@@ -3,6 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Link } from "@/i18n/routing";
 import {
   getLandingImage,
   getLandingWhatsAppLink,
@@ -23,18 +24,19 @@ export function ProductCard({
   const whatsappLink = getLandingWhatsAppLink(locale, product);
 
   return (
-    <motion.a
-      href={whatsappLink}
-      target="_blank"
-      rel="noopener noreferrer"
+    <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
-      aria-label={locale === "id" ? `Minta penawaran untuk ${product.name}` : `Request a quote for ${product.name}`}
       className="group relative flex h-full flex-col overflow-hidden bg-white text-left"
     >
-      <div className="relative aspect-4/3 shrink-0 overflow-hidden bg-white">
+      <Link
+        href={`/product/${product.slug}`}
+        locale={locale}
+        className="relative block aspect-4/3 shrink-0 overflow-hidden bg-white"
+        aria-label={locale === "id" ? `Lihat detail ${product.name}` : `View details for ${product.name}`}
+      >
         <Image
           src={getLandingImage(product.image)}
           alt={product.name}
@@ -46,11 +48,13 @@ export function ProductCard({
         <div className="absolute left-5 top-5 bg-amber-400 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-950">
           {product.category}
         </div>
-      </div>
+      </Link>
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="text-2xl font-semibold tracking-tight">
-          {product.name}
-        </h3>
+        <Link href={`/product/${product.slug}`} locale={locale}>
+          <h3 className="text-2xl font-semibold tracking-tight transition-colors hover:text-amber-600">
+            {product.name}
+          </h3>
+        </Link>
         <p className="mt-4 text-sm leading-7 text-neutral-600">
           {product.description}
         </p>
@@ -64,22 +68,27 @@ export function ProductCard({
             </span>
           ))}
         </div>
-        <div className="mt-auto flex items-center justify-between gap-4 border border-neutral-200 bg-neutral-50 px-4 py-4 transition-colors duration-300 group-hover:border-neutral-950 group-hover:bg-white">
-          <div className="min-w-0">
-            <p className="text-sm font-semibold text-neutral-950">
-              {locale === "id" ? "Minta penawaran" : "Request a quote"}
-            </p>
-            <p className="mt-1 text-xs leading-5 text-neutral-500">
-              {locale === "id"
-                ? "Pesan masuk dengan form kebutuhan yang sudah terisi"
-                : "Open a prefilled inquiry message for this product"}
-            </p>
-          </div>
-          <span className="grid size-11 shrink-0 place-items-center rounded-full bg-neutral-950 text-white transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5">
+        <div className="mt-auto grid gap-3 pt-6 sm:grid-cols-2">
+          <Link
+            href={`/product/${product.slug}`}
+            locale={locale}
+            className="inline-flex h-12 items-center justify-center gap-2 border border-neutral-200 bg-neutral-50 px-4 text-sm font-semibold text-neutral-950 transition-colors hover:border-neutral-950 hover:bg-white"
+          >
+            {locale === "id" ? "Lihat detail" : "View detail"}
             <ArrowRight className="size-4" />
-          </span>
+          </Link>
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={locale === "id" ? `Minta penawaran untuk ${product.name}` : `Request a quote for ${product.name}`}
+            className="inline-flex h-12 items-center justify-center gap-2 bg-neutral-950 px-4 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+          >
+            {locale === "id" ? "Penawaran" : "Quote"}
+            <ArrowRight className="size-4" />
+          </a>
         </div>
       </div>
-    </motion.a>
+    </motion.article>
   );
 }

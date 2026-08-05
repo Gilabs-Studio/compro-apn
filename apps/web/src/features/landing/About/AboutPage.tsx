@@ -41,8 +41,8 @@ export function AboutPage({ locale }: Readonly<AboutPageProps>) {
             </h1>
             <p className="mt-7 max-w-2xl text-base leading-8 text-white/66">
               {locale === "id"
-                ? "PT Adiguna Presisi Nusantara menyediakan ekosistem permesinan industri dan instrumen manufaktur presisi nasional"
-                : "PT Adiguna Presisi Nusantara provides industrial machinery and precision manufacturing systems"}
+                ? "PT Adiguna Presisi Nusantara merupakan vendor mesin CNC terpercaya di wilayah Tangerang dan Tangerang Selatan yang menyediakan ekosistem permesinan industri serta instrumen manufaktur presisi nasional."
+                : "PT Adiguna Presisi Nusantara is a trusted CNC machine vendor in Tangerang and South Tangerang, providing industrial machinery and precision manufacturing systems."}
             </p>
           </div>
         </div>

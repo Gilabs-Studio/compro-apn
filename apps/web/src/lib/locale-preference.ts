@@ -3,6 +3,7 @@ import type { Locale } from "@/types/locale";
 
 export const LOCALE_PREFERENCE_COOKIE = "indosupplier_locale_pref";
 export const LOCALE_PREFERENCE_STORAGE_KEY = "locale";
+export const REQUEST_LOCALE_HEADER = "x-indosupplier-locale";
 
 export function normalizeLocale(value: string | null | undefined): Locale | null {
   if (value === "id" || value === "en") {
